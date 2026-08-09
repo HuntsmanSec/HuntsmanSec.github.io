@@ -326,13 +326,14 @@ h3 {
   background: linear-gradient(145deg, rgba(11, 18, 32, 0.94), rgba(5, 7, 11, 0.9));
   box-shadow: var(--shadow);
   overflow: hidden;
+  left: 20px;
 }
 
 .cv-card::before {
   content: "LIVE PROFILE";
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   color: var(--green);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 10px;
