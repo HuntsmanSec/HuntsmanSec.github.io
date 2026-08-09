@@ -3,6 +3,11 @@ description: Cybersecurity Portfolio | SOC Notes | CTF Writeups | Blue Team | Th
 theme: jekyll-theme-hacker
 show_downloads: false
 
+# Uncomment these after adding a public, redacted PNG at
+# assets/images/certifications.png. Do not use private verification codes or IDs.
+# certification_image: /assets/images/certifications.png
+# certification_image_alt: Public certification overview
+
 author:
   name: HuntsmanSec
   github: HuntsmanSec

@@ -29,11 +29,26 @@ layout: default
       </div>
       <form class="terminal-input-row" data-terminal-form>
         <label for="terminal-command">$</label>
-        <input id="terminal-command" name="command" type="text" autocomplete="off" spellcheck="false" placeholder="try: help, soc, ctf, open cheatsheets">
+        <input id="terminal-command" name="command" type="text" autocomplete="off" spellcheck="false" placeholder="try: help, whoami, soc, ctf, open cheatsheets">
       </form>
     </div>
   </aside>
 </section>
+
+{% if site.certification_image %}
+<section class="certification-showcase" aria-labelledby="certification-showcase-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Credentials</p>
+      <h2 id="certification-showcase-title">Certification Overview</h2>
+    </div>
+    <a class="button" href="{{ '/certifications/' | relative_url }}">View Certifications</a>
+  </div>
+  <a class="certification-image-link" href="{{ '/certifications/' | relative_url }}">
+    <img src="{{ site.certification_image | relative_url }}" alt="{{ site.certification_image_alt | default: 'Public certification overview' | escape }}" loading="lazy">
+  </a>
+</section>
+{% endif %}
 
 <section class="section">
   <div class="section-heading">
