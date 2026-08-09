@@ -656,6 +656,70 @@ pre {
   font-size: 22px;
 }
 
+.organization-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  margin-bottom: 14px;
+}
+
+.organization-identity--modal {
+  margin-right: 48px;
+}
+
+.organization-mark {
+  display: inline-grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid currentColor;
+  background: rgba(5, 7, 11, 0.82);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.organization-logo {
+  display: block;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  background: rgba(5, 7, 11, 0.82);
+  object-fit: contain;
+}
+
+.organization-name {
+  color: #dbeafe;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.organization-mark--cyan {
+  color: var(--cyan);
+}
+
+.organization-mark--blue {
+  color: #7bb6ff;
+}
+
+.organization-mark--red {
+  color: var(--rose);
+}
+
+.organization-mark--gold {
+  color: var(--amber);
+}
+
+.organization-mark--neutral {
+  color: var(--muted);
+}
+
 .post-card .tag-row {
   margin-top: auto;
 }

@@ -35,9 +35,24 @@ layout: default
   <div class="post-grid">
     {% for item in items %}
     <article class="post-card" data-tags="{% for tag in item.tags %}{{ tag | slugify }} {% endfor %}">
+      {% if item.organization %}
+      <div class="organization-identity">
+        {% if item.logo_image %}
+        <img class="organization-logo" src="{{ item.logo_image | relative_url }}" alt="{{ item.organization | escape }} logo" loading="lazy">
+        {% else %}
+        <span class="organization-mark organization-mark--{{ item.logo_tone | default: 'neutral' | slugify }}" aria-hidden="true">{{ item.logo_mark | default: 'ORG' }}</span>
+        {% endif %}
+        <span class="organization-name">{{ item.organization }}</span>
+      </div>
+      {% endif %}
       <div class="post-meta">
+        {% if item.period %}
+        <span>{{ item.period }}</span>
+        {% else %}
         <span>{{ item.date | date: "%Y-%m-%d" }}</span>
+        {% endif %}
         <span>{{ item.category_label | default: page.item_label }}</span>
+        {% if item.location %}<span>{{ item.location }}</span>{% endif %}
       </div>
       <h2>{{ item.title }}</h2>
       {% if item.excerpt %}
@@ -55,10 +70,25 @@ layout: default
       <div class="modal-backdrop" data-modal-close></div>
       <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title-{{ forloop.index }}">
         <button class="modal-close" type="button" aria-label="Close details" data-modal-close>×</button>
+        {% if item.organization %}
+        <div class="organization-identity organization-identity--modal">
+          {% if item.logo_image %}
+          <img class="organization-logo" src="{{ item.logo_image | relative_url }}" alt="{{ item.organization | escape }} logo" loading="lazy">
+          {% else %}
+          <span class="organization-mark organization-mark--{{ item.logo_tone | default: 'neutral' | slugify }}" aria-hidden="true">{{ item.logo_mark | default: 'ORG' }}</span>
+          {% endif %}
+          <span class="organization-name">{{ item.organization }}</span>
+        </div>
+        {% endif %}
         <div class="post-meta">
+          {% if item.period %}
+          <span>{{ item.period }}</span>
+          {% else %}
           <span>{{ item.date | date: "%Y-%m-%d" }}</span>
+          {% endif %}
           <span>{{ item.category_label | default: page.item_label }}</span>
           {% if item.status %}<span>{{ item.status }}</span>{% endif %}
+          {% if item.location %}<span>{{ item.location }}</span>{% endif %}
         </div>
         <h2 id="modal-title-{{ forloop.index }}">{{ item.title }}</h2>
         <div class="tag-row">
