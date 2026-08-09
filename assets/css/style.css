@@ -326,7 +326,7 @@ h3 {
   background: linear-gradient(145deg, rgba(11, 18, 32, 0.94), rgba(5, 7, 11, 0.9));
   box-shadow: var(--shadow);
   overflow: hidden;
-  left: 20px;
+  left: 100px;
 }
 
 .cv-card::before {
