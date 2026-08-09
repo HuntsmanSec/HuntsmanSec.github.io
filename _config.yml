@@ -1,0 +1,102 @@
+title: HuntsmanSec
+description: Cybersecurity Portfolio | SOC Notes | CTF Writeups | Blue Team | Threat Detection
+theme: jekyll-theme-hacker
+show_downloads: false
+
+author:
+  name: HuntsmanSec
+  github: HuntsmanSec
+
+collections:
+  career:
+    output: true
+    permalink: /career/:name/
+  ctf:
+    output: true
+    permalink: /ctf/:name/
+  soc:
+    output: true
+    permalink: /soc-notes/:name/
+  cheatsheets:
+    output: true
+    permalink: /cheatsheets/:name/
+  trainings:
+    output: true
+    permalink: /trainings/:name/
+  certifications:
+    output: true
+    permalink: /certifications/:name/
+  talks:
+    output: true
+    permalink: /speakership-mentorship/:name/
+  recognitions:
+    output: true
+    permalink: /recognitions/:name/
+  conferences:
+    output: true
+    permalink: /conferences/:name/
+  misc:
+    output: true
+    permalink: /misc/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: career
+    values:
+      layout: post
+      category_label: Career Timeline
+  - scope:
+      path: ""
+      type: ctf
+    values:
+      layout: post
+      category_label: CTF Writeup
+  - scope:
+      path: ""
+      type: soc
+    values:
+      layout: post
+      category_label: SOC Note
+  - scope:
+      path: ""
+      type: cheatsheets
+    values:
+      layout: post
+      category_label: Cheatsheet
+  - scope:
+      path: ""
+      type: trainings
+    values:
+      layout: post
+      category_label: Training
+  - scope:
+      path: ""
+      type: certifications
+    values:
+      layout: post
+      category_label: Certification
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: post
+      category_label: Speakership / Mentorship
+  - scope:
+      path: ""
+      type: recognitions
+    values:
+      layout: post
+      category_label: Recognition
+  - scope:
+      path: ""
+      type: conferences
+    values:
+      layout: post
+      category_label: Conference
+  - scope:
+      path: ""
+      type: misc
+    values:
+      layout: post
+      category_label: Misc
