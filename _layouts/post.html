@@ -8,7 +8,15 @@ layout: default
     <p class="eyebrow">{{ page.category_label | default: "Entry" }}</p>
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
-      {% if page.date %}<span>{{ page.date | date: "%Y-%m-%d" }}</span>{% endif %}
+      {% if page.organization %}
+      <span>{{ page.organization }}</span>
+      {% endif %}
+      {% if page.period %}
+      <span>{{ page.period }}</span>
+      {% elsif page.date %}
+      <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+      {% endif %}
+      {% if page.location %}<span>{{ page.location }}</span>{% endif %}
       {% if page.status %}<span>{{ page.status }}</span>{% endif %}
     </div>
     {% if page.tags %}
