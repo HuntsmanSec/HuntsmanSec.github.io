@@ -63,33 +63,45 @@ const scrambleTarget = document.querySelector("[data-scramble]");
 if (scrambleTarget) {
   const finalText = scrambleTarget.dataset.scramble;
   const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_#$%";
-  let frame = 0;
-  const maxFrames = finalText.length * 5;
 
-  const scramble = () => {
-    const output = finalText
-      .split("")
-      .map((char, index) => {
-        if (frame / 5 > index) return char;
-        return glyphs[Math.floor(Math.random() * glyphs.length)];
-      })
-      .join("");
+  const startScramble = () => {
+    let frame = 0;
+    const maxFrames = finalText.length * 5;
+    scrambleTarget.classList.remove("glitch-complete");
 
-    scrambleTarget.textContent = output;
-    scrambleTarget.dataset.text = output;
-    frame += 1;
+    const scramble = () => {
+      const output = finalText
+        .split("")
+        .map((char, index) => {
+          if (frame / 5 > index) return char;
+          return glyphs[Math.floor(Math.random() * glyphs.length)];
+        })
+        .join("");
 
-    if (frame <= maxFrames) {
-      window.requestAnimationFrame(scramble);
-      return;
-    }
+      scrambleTarget.textContent = output;
+      scrambleTarget.dataset.text = output;
+      frame += 1;
 
-    scrambleTarget.textContent = finalText;
-    scrambleTarget.dataset.text = finalText;
-    scrambleTarget.classList.add("glitch-complete");
+      if (frame <= maxFrames) {
+        window.requestAnimationFrame(scramble);
+        return;
+      }
+
+      scrambleTarget.textContent = finalText;
+      scrambleTarget.dataset.text = finalText;
+      scrambleTarget.classList.add("glitch-complete");
+      window.setTimeout(startScramble, 4000);
+    };
+
+    scramble();
   };
 
-  scramble();
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    scrambleTarget.textContent = finalText;
+    scrambleTarget.dataset.text = finalText;
+  } else {
+    startScramble();
+  }
 }
 
 const terminal = document.querySelector("[data-terminal]");
