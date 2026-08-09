@@ -331,17 +331,17 @@ h3 {
 .cv-card::before {
   content: "LIVE PROFILE";
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 12px;
+  right: 12px;
   color: var(--green);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .terminal-bar {
   display: flex;
   gap: 8px;
-  padding: 14px;
+  padding: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
