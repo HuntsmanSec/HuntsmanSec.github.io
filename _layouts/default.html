@@ -17,26 +17,35 @@
         </span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="{{ '/career/' | relative_url }}">Career Timeline</a>
+        <!-- Core Professional Links -->
+        <a href="{{ '/career/' | relative_url }}">Career</a>
         <a href="{{ '/trainings/' | relative_url }}">Trainings</a>
-        <a href="{{ '/certifications/' | relative_url }}">Certifications</a>
-        <a href="{{ '/speakership-mentorship/' | relative_url }}">Speakership and Mentorship</a>
-        <a href="{{ '/ctf-writeups/' | relative_url }}">CTF Participation and Writeups</a>
-        <a href="{{ '/soc-notes/' | relative_url }}">SOC Notes</a>
-        <a href="{{ '/cheatsheets/' | relative_url }}">Cheatsheets</a>
-        <a href="{{ '/recognitions/' | relative_url }}">Recognitions</a>
-        <a href="{{ '/conferences/' | relative_url }}">Conferences Attended</a>
-        <a href="{{ '/misc/' | relative_url }}">Misc</a>
+        <a href="{{ '/certifications/' | relative_url }}">Certs</a>
+        <a href="{{ '/speakership-mentorship/' | relative_url }}">Talks</a>
+        <a href="{{ '/ctf-writeups/' | relative_url }}">CTFs</a>
+
+        <!-- Resources Dropdown Menu -->
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Resources <span class="arrow">▼</span>
+          </button>
+          <div class="dropdown-content">
+            <a href="{{ '/soc-notes/' | relative_url }}">SOC-Notes</a>
+            <a href="{{ '/cheatsheets/' | relative_url }}">Cheatsheets</a>
+            <a href="{{ '/recognitions/' | relative_url }}">Recognitions</a>
+            <a href="{{ '/conferences/' | relative_url }}">Conferences</a>
+            <a href="{{ '/misc/' | relative_url }}">Misc</a>
+          </div>
+        </div>
       </nav>
     </header>
-
     <main>
       {{ content }}
     </main>
 
     <footer class="site-footer">
-      <span>Built with Jekyll and GitHub Pages.</span>
-      <span>No secrets, no private data, no live customer artifacts.</span>
+      <span>Built by Huntsman</span>
+      <span>Are you a 1 or a 0?</span>
     </footer>
 
     <script src="{{ '/assets/js/filters.js' | relative_url }}"></script>
