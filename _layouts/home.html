@@ -17,22 +17,35 @@ layout: default
       <a class="button" href="{{ '/ctf-writeups/' | relative_url }}">Open Writeups</a>
     </div>
   </div>
-  <aside class="terminal-panel cv-card" aria-label="Profile summary">
-    <div class="terminal-bar">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="interactive-terminal" data-terminal>
-      <div class="terminal-output" data-terminal-output aria-live="polite">
-        <p><span>$</span> boot --portfolio</p>
-        <p>HuntsmanSec public archive loaded.</p>
-        <p>Type <strong>help</strong> to list commands.</p>
-      </div>
-      <form class="terminal-input-row" data-terminal-form>
-        <label for="terminal-command">$</label>
-        <input id="terminal-command" name="command" type="text" autocomplete="off" spellcheck="false" placeholder="try: help, whoami, soc, ctf, open cheatsheets">
-      </form>
-    </div>
+  <aside class="terminal-panel terminal-panel--hero cv-card" aria-label="Interactive site terminal">
+    {% include terminal.html %}
   </aside>
+</section>
+
+<section class="certification-marquee" aria-labelledby="certification-marquee-title">
+  <p class="eyebrow" id="certification-marquee-title">Certification Signals</p>
+  <div class="certification-marquee-window">
+    <div class="certification-marquee-track">
+      <div class="certification-marquee-group">
+        <span class="certification-badge">SIREN Engr.</span>
+        <span class="certification-badge">CompTIA Security+</span>
+        <span class="certification-badge">eJPT</span>
+        <span class="certification-badge">CCTA</span>
+        <span class="certification-badge">CCTH</span>
+        <span class="certification-badge">CCEP</span>
+        <span class="certification-badge">ISC2 CC</span>
+      </div>
+      <div class="certification-marquee-group" aria-hidden="true">
+        <span class="certification-badge">SIREN Engr.</span>
+        <span class="certification-badge">CompTIA Security+</span>
+        <span class="certification-badge">eJPT</span>
+        <span class="certification-badge">CCTA</span>
+        <span class="certification-badge">CCTH</span>
+        <span class="certification-badge">CCEP</span>
+        <span class="certification-badge">ISC2 CC</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 {% if site.certification_image %}
@@ -50,74 +63,71 @@ layout: default
 </section>
 {% endif %}
 
-<section class="section">
+<section class="technology-section section" aria-labelledby="technology-title">
   <div class="section-heading">
-    <p class="eyebrow">Navigation</p>
-    <h2>Portfolio Sections</h2>
+    <div>
+      <p class="eyebrow">Operational Toolkit</p>
+      <h2 id="technology-title">Technology Proficiency</h2>
+    </div>
   </div>
-  <div class="hub-grid">
-    <a class="hub-card" href="{{ '/career/' | relative_url }}">
-      <span>01</span>
-      <strong>Career Timeline</strong>
-      <p>Roles, milestones, tools, and professional growth.</p>
-    </a>
-    <a class="hub-card" href="{{ '/trainings/' | relative_url }}">
-      <span>02</span>
-      <strong>Trainings</strong>
-      <p>Courses, labs, workshops, and learning paths.</p>
-    </a>
-    <a class="hub-card" href="{{ '/certifications/' | relative_url }}">
-      <span>03</span>
-      <strong>Certifications</strong>
-      <p>Credentials, verification links, and exam domains.</p>
-    </a>
-    <a class="hub-card" href="{{ '/speakership-mentorship/' | relative_url }}">
-      <span>04</span>
-      <strong>Speakership and Mentorship</strong>
-      <p>Talks, sessions, and community support.</p>
-    </a>
-    <a class="hub-card" href="{{ '/ctf-writeups/' | relative_url }}">
-      <span>05</span>
-      <strong>CTF Participation and Writeups</strong>
-      <p>Challenge walkthroughs, methods, and lessons learned.</p>
-    </a>
-    <a class="hub-card" href="{{ '/soc-notes/' | relative_url }}">
-      <span>06</span>
-      <strong>SOC Notes</strong>
-      <p>Investigation workflows and analyst references.</p>
-    </a>
-    <a class="hub-card" href="{{ '/cheatsheets/' | relative_url }}">
-      <span>07</span>
-      <strong>Cheatsheets</strong>
-      <p>Fast references for commands, logs, and queries.</p>
-    </a>
-    <a class="hub-card" href="{{ '/recognitions/' | relative_url }}">
-      <span>08</span>
-      <strong>Recognitions</strong>
-      <p>Awards, acknowledgements, and public milestones.</p>
-    </a>
-    <a class="hub-card" href="{{ '/conferences/' | relative_url }}">
-      <span>09</span>
-      <strong>Conferences Attended</strong>
-      <p>Events, sessions, and takeaways.</p>
-    </a>
-    <a class="hub-card" href="{{ '/misc/' | relative_url }}">
-      <span>10</span>
-      <strong>Misc</strong>
-      <p>Home lab ideas, reading lists, and experiments.</p>
-    </a>
-  </div>
-</section>
-
-<section class="section cv-strip">
-  <div>
-    <p class="eyebrow">Profile Snapshot</p>
-    <h2>Security Work, Organized Like A Living CV</h2>
-  </div>
-  <div class="metric-grid">
-    <div><strong>SOC</strong><span>triage and investigations</span></div>
-    <div><strong>CTF</strong><span>writeups and practice</span></div>
-    <div><strong>Docs</strong><span>notes and cheatsheets</span></div>
-    <div><strong>Community</strong><span>talks and mentorship</span></div>
+  <div class="technology-layout">
+    <div class="proficiency-list" role="list" aria-label="Technology proficiency levels">
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>Microsoft Sentinel</strong><span>90%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="Microsoft Sentinel proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span style="--proficiency: 90%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>Microsoft Defender</strong><span>88%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="Microsoft Defender proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88"><span style="--proficiency: 88%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>CrowdStrike</strong><span>86%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="CrowdStrike proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="86"><span style="--proficiency: 86%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>Cybereason</strong><span>80%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="Cybereason proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><span style="--proficiency: 80%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>Carbon Black Cloud</strong><span>78%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="Carbon Black Cloud proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="78"><span style="--proficiency: 78%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>Carbon Black Response</strong><span>74%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="Carbon Black Response proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="74"><span style="--proficiency: 74%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>Splunk</strong><span>84%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="Splunk proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="84"><span style="--proficiency: 84%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>SentinelOne</strong><span>82%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="SentinelOne proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="82"><span style="--proficiency: 82%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>QRadar</strong><span>76%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="QRadar proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="76"><span style="--proficiency: 76%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>LogRhythm</strong><span>73%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="LogRhythm proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="73"><span style="--proficiency: 73%"></span></div>
+      </article>
+      <article class="proficiency-row" role="listitem">
+        <div class="proficiency-label"><strong>FireEye</strong><span>70%</span></div>
+        <div class="proficiency-meter" role="progressbar" aria-label="FireEye proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><span style="--proficiency: 70%"></span></div>
+      </article>
+    </div>
+    <aside class="investigation-summary" aria-label="Temporary work metrics">
+      <div class="counter-tile">
+        <span>Number of Findings</span>
+        <strong>047</strong>
+        <small>Temporary count</small>
+      </div>
+      <div class="counter-tile">
+        <span>Investigations</span>
+        <strong>128</strong>
+        <small>Temporary count</small>
+      </div>
+    </aside>
   </div>
 </section>
