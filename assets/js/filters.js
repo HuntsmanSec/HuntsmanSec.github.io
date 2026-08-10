@@ -58,6 +58,31 @@ document.addEventListener("keydown", (event) => {
   document.body.classList.remove("modal-active");
 });
 
+document.querySelectorAll("[data-dropdown]").forEach((dropdown) => {
+  const trigger = dropdown.querySelector("[data-dropdown-trigger]");
+  if (!trigger) return;
+
+  const close = () => {
+    dropdown.classList.remove("open");
+    trigger.setAttribute("aria-expanded", "false");
+  };
+
+  trigger.addEventListener("click", () => {
+    const isOpen = dropdown.classList.toggle("open");
+    trigger.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!dropdown.contains(event.target)) close();
+  });
+
+  dropdown.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    close();
+    trigger.focus();
+  });
+});
+
 const scrambleTarget = document.querySelector("[data-scramble]");
 
 if (scrambleTarget) {
@@ -104,81 +129,90 @@ if (scrambleTarget) {
   }
 }
 
-const terminal = document.querySelector("[data-terminal]");
+const escapeHtml = (value) => value.replace(/[&<>'"]/g, (character) => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  "'": "&#39;",
+  "\"": "&quot;"
+}[character]));
 
-if (terminal) {
+const sections = {
+  home: { title: "Home", path: "/" },
+  whoami: { title: "Whoami", path: "/whoami/" },
+  career: { title: "Career Timeline", path: "/career/" },
+  trainings: { title: "Trainings", path: "/trainings/" },
+  certifications: { title: "Certifications", path: "/certifications/" },
+  talks: { title: "Speakership and Mentorship", path: "/speakership-mentorship/" },
+  ctf: { title: "CTF Participation and Writeups", path: "/ctf-writeups/" },
+  soc: { title: "SOC Notes", path: "/soc-notes/" },
+  cheatsheets: { title: "Cheatsheets", path: "/cheatsheets/" },
+  recognitions: { title: "Recognitions", path: "/recognitions/" },
+  conferences: { title: "Conferences Attended", path: "/conferences/" },
+  misc: { title: "Misc", path: "/misc/" }
+};
+
+const aliases = {
+  cert: "certifications",
+  certs: "certifications",
+  training: "trainings",
+  speakership: "talks",
+  mentorship: "talks",
+  "speakership-and-mentorship": "talks",
+  writeups: "ctf",
+  "ctf-writeups": "ctf",
+  "ctf-participation-and-writeups": "ctf",
+  notes: "soc",
+  "soc-notes": "soc",
+  sheets: "cheatsheets",
+  recognition: "recognitions",
+  conference: "conferences",
+  conf: "conferences",
+  "career-timeline": "career"
+};
+
+const certifications = [
+  "SIREN Engr.",
+  "CompTIA Security+",
+  "eJPT",
+  "CCTA",
+  "CCTH",
+  "CCEP",
+  "ISC2 Certified in Cybersecurity"
+];
+
+const normalizePageName = (value) => value
+  .trim()
+  .toLowerCase()
+  .replace(/^\/+|\/+$/g, "")
+  .replace(/\s+/g, "-");
+
+const resolveSection = (target) => {
+  const normalized = normalizePageName(target);
+  const key = aliases[normalized] || normalized;
+
+  if (sections[key]) return sections[key];
+
+  return Object.values(sections).find((item) => normalizePageName(item.title) === normalized);
+};
+
+const sectionList = () => Object.entries(sections)
+  .map(([key, item]) => `<button type="button" class="terminal-link" data-terminal-command="cd ${key}">${item.title}</button>`)
+  .join("");
+
+const huntsmanAscii = [
+  " _  _ _  _ _  _ _____ ___ __  __   _   _  _",
+  "| || | || | |\\ | |_   _/ __|  \\/  | /_\\ | \\ |",
+  "| __ | || |  \\| | | | \\__ \\ |\\/| |/ _ \\| .` |",
+  "|_||_|\\__/|_|\\_| |_| |___/_|  |_/_/ \\_\\_|\\_|"
+].join("\n");
+
+document.querySelectorAll("[data-terminal]").forEach((terminal) => {
   const output = terminal.querySelector("[data-terminal-output]");
   const form = terminal.querySelector("[data-terminal-form]");
-  const input = form.querySelector("input");
-  const sections = {
-    career: {
-      title: "Career Timeline",
-      body: "Roles, milestones, tools, and public-safe professional growth notes.",
-      path: "/career/"
-    },
-    trainings: {
-      title: "Trainings",
-      body: "Courses, labs, workshops, and learning paths.",
-      path: "/trainings/"
-    },
-    certifications: {
-      title: "Certifications",
-      body: "Credentials, verification links, and exam domains.",
-      path: "/certifications/"
-    },
-    talks: {
-      title: "Speakership and Mentorship",
-      body: "Talks, mentorship sessions, community support, and shared learning.",
-      path: "/speakership-mentorship/"
-    },
-    mentorship: {
-      title: "Speakership and Mentorship",
-      body: "Talks, mentorship sessions, community support, and shared learning.",
-      path: "/speakership-mentorship/"
-    },
-    ctf: {
-      title: "CTF Participation and Writeups",
-      body: "Challenge walkthroughs, methods, tools, and lessons learned.",
-      path: "/ctf-writeups/"
-    },
-    soc: {
-      title: "SOC Notes",
-      body: "Alert triage, investigation workflows, detection notes, and analyst references.",
-      path: "/soc-notes/"
-    },
-    cheatsheets: {
-      title: "Cheatsheets",
-      body: "Fast references for commands, logs, filters, tools, and queries.",
-      path: "/cheatsheets/"
-    },
-    recognitions: {
-      title: "Recognitions",
-      body: "Awards, acknowledgements, public milestones, and community recognition.",
-      path: "/recognitions/"
-    },
-    conferences: {
-      title: "Conferences Attended",
-      body: "Events, sessions, and takeaways from security conferences.",
-      path: "/conferences/"
-    },
-    misc: {
-      title: "Misc",
-      body: "Home lab ideas, reading lists, experiments, and small security projects.",
-      path: "/misc/"
-    }
-  };
+  const input = form?.querySelector("input");
 
-  const aliases = {
-    certs: "certifications",
-    training: "trainings",
-    speakership: "talks",
-    writeups: "ctf",
-    notes: "soc",
-    sheets: "cheatsheets",
-    conf: "conferences",
-    conference: "conferences",
-    recognition: "recognitions"
-  };
+  if (!output || !form || !input) return;
 
   const print = (html) => {
     const line = document.createElement("div");
@@ -188,47 +222,40 @@ if (terminal) {
     output.scrollTop = output.scrollHeight;
   };
 
-  const sectionList = () => Object.entries(sections)
-    .filter(([key]) => !["mentorship"].includes(key))
-    .map(([key, item]) => `<button type="button" class="terminal-link" data-terminal-command="${key}">${item.title}</button>`)
-    .join("");
-
-  const showSection = (key) => {
-    const normalized = aliases[key] || key;
-    const item = sections[normalized];
-
-    if (!item) {
-      print(`Command not found: <strong>${key}</strong>. Type <strong>help</strong>.`);
-      return;
-    }
-
-    print(`<strong>${item.title}</strong><br>${item.body}<br><a href="${item.path}">open ${item.path}</a>`);
-  };
-
   const runCommand = (rawCommand) => {
     const command = rawCommand.trim().toLowerCase();
     if (!command) return;
-
-    print(`<span>$</span> ${command}`);
 
     if (command === "clear") {
       output.innerHTML = "";
       return;
     }
 
+    print(`<span>$</span> ${escapeHtml(command)}`);
+
     if (command === "help") {
-      print("Commands: help, whoami, sections, security, clear, open &lt;section&gt;.");
-      print(`<div class="terminal-command-grid">${sectionList()}</div>`);
+      print("Commands: whoami, ls, cd &lt;page&gt;, cert, cat flag.txt, security, clear.");
       return;
     }
 
     if (command === "whoami") {
-      print("<strong>HuntsmanSec</strong><br>Cybersecurity portfolio focused on SOC notes, detection learning, CTF practice, cheatsheets, talks, mentorship, and public-safe documentation.");
+      print(`<pre class="terminal-ascii">${huntsmanAscii}</pre><strong>Huntsman</strong><br><span>hacking since 2007</span>`);
       return;
     }
 
-    if (command === "sections" || command === "ls") {
+    if (command === "ls" || command === "sections") {
+      print("Available pages:");
       print(`<div class="terminal-command-grid">${sectionList()}</div>`);
+      return;
+    }
+
+    if (command === "cert" || command === "certs") {
+      print(`<strong>Certifications</strong><br>${certifications.map((item) => escapeHtml(item)).join("<br>")}`);
+      return;
+    }
+
+    if (command === "cat flag.txt") {
+      print("<strong>hunt{p0w3r_b3l0ngs_2d_p30pl3_th4t_t4k3_it}</strong>");
       return;
     }
 
@@ -237,17 +264,27 @@ if (terminal) {
       return;
     }
 
-    if (command.startsWith("open ")) {
-      const target = command.replace("open ", "").trim();
-      const normalized = aliases[target] || target;
-      const item = sections[normalized];
+    const directoryCommand = command.match(/^(?:cd|open)\s+(.+)$/);
+    if (directoryCommand) {
+      const target = directoryCommand[1];
+      const item = resolveSection(target);
+
       if (item) {
-        window.location.href = item.path;
+        window.location.assign(item.path);
         return;
       }
+
+      print(`No page named <strong>${escapeHtml(target)}</strong>. Run <strong>ls</strong> to list pages.`);
+      return;
     }
 
-    showSection(command);
+    const item = resolveSection(command);
+    if (item) {
+      print(`<strong>${item.title}</strong><br>Run <strong>cd ${normalizePageName(item.title)}</strong> to open this page.`);
+      return;
+    }
+
+    print(`Command not found: <strong>${escapeHtml(command)}</strong>. Type <strong>help</strong>.`);
   };
 
   form.addEventListener("submit", (event) => {
@@ -261,4 +298,4 @@ if (terminal) {
     if (!button) return;
     runCommand(button.dataset.terminalCommand);
   });
-}
+});
