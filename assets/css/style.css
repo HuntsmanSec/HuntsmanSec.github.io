@@ -128,33 +128,127 @@ a {
   font-size: 12px;
 }
 
+/* Navigation Container */
 .site-nav {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 12px;
   justify-content: flex-end;
   overflow-x: auto;
-  padding: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: linear-gradient(145deg, rgba(124, 255, 169, 0.14), rgba(103, 232, 249, 0.08));
-  box-shadow: inset 0 0 24px rgba(124, 255, 169, 0.08);
-  scrollbar-width: thin;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(11, 18, 32, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.site-nav a {
+/* Base Glass Button Style for both Links and Dropdown Trigger */
+.site-nav a, 
+.dropdown-trigger {
   flex: 0 0 auto;
-  min-height: 34px;
-  padding: 7px 10px;
-  border: 1px solid transparent;
-  color: #d7e4f2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(124, 255, 169, 0.15);
+  border-radius: 6px;
+  color: #c4d6eb;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  text-decoration: none;
 }
 
-.site-nav a:hover {
-  border-color: var(--line-strong);
-  color: var(--green);
+/* Futuristic Neon Hover State */
+.site-nav a:hover, 
+.nav-dropdown:hover .dropdown-trigger {
+  color: #7cffa9; /* Cyan-green neon */
   background: rgba(124, 255, 169, 0.08);
+  border-color: rgba(124, 255, 169, 0.6);
+  box-shadow: 0 0 12px rgba(124, 255, 169, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 8px rgba(124, 255, 169, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Dropdown Container Positioning */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Arrow Animation Accent */
+.dropdown-trigger .arrow {
+  margin-left: 6px;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .arrow {
+  transform: rotate(180deg);
+  color: #7cffa9;
+}
+
+/* Futuristic Floating Dropdown Panel */
+.dropdown-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 160px;
+  background: rgba(8, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 255, 169, 0.2);
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Show Dropdown Panel with a Fade/Slide effect */
+.nav-dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Inside Dropdown Links styling */
+.dropdown-content a {
+  display: block;
+  width: 100%;
+  min-height: auto;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: left;
+  box-shadow: none;
+}
+
+/* Inside Dropdown Links hover style */
+.dropdown-content a:hover {
+  background: rgba(103, 232, 249, 0.1); /* Cyber cyan hint */
+  border-color: rgba(103, 232, 249, 0.3);
+  color: #67e8f9;
+  text-shadow: 0 0 8px rgba(103, 232, 249, 0.5);
+  box-shadow: none;
+  transform: translateX(2px); /* Slight shift forward instead of shifting up */
+}
 }
 
 .hero {
