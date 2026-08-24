@@ -1,10 +1,14 @@
+{% unless include.compact %}
 <div class="terminal-bar" aria-hidden="true">
   <span></span><span></span><span></span>
 </div>
-<div class="interactive-terminal" data-terminal>
+{% endunless %}
+<div class="interactive-terminal{% if include.compact %} interactive-terminal--compact{% endif %}" data-terminal>
   <div class="terminal-output" data-terminal-output aria-live="polite">
+    {% unless include.compact %}
     <p><span>$</span> boot --portfolio</p>
     <p>HuntsmanSec public archive loaded.</p>
+    {% endunless %}
   </div>
   <form class="terminal-input-row" data-terminal-form>
     <label for="terminal-command">$</label>

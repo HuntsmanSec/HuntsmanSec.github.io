@@ -219,6 +219,7 @@ document.querySelectorAll("[data-terminal]").forEach((terminal) => {
     line.className = "terminal-line";
     line.innerHTML = html;
     output.appendChild(line);
+    terminal.classList.add("has-output");
     output.scrollTop = output.scrollHeight;
   };
 
@@ -228,6 +229,7 @@ document.querySelectorAll("[data-terminal]").forEach((terminal) => {
 
     if (command === "clear") {
       output.innerHTML = "";
+      terminal.classList.remove("has-output");
       return;
     }
 
@@ -298,4 +300,33 @@ document.querySelectorAll("[data-terminal]").forEach((terminal) => {
     if (!button) return;
     runCommand(button.dataset.terminalCommand);
   });
+});
+
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+  const slides = [...carousel.querySelectorAll("[data-carousel-slide]")];
+  const previous = carousel.querySelector("[data-carousel-prev]");
+  const next = carousel.querySelector("[data-carousel-next]");
+  const status = carousel.querySelector("[data-carousel-status]");
+  let activeIndex = 0;
+
+  if (slides.length === 0 || !previous || !next || !status) return;
+
+  const render = () => {
+    slides.forEach((slide, index) => {
+      slide.hidden = index !== activeIndex;
+    });
+    status.textContent = `${activeIndex + 1} / ${slides.length}`;
+  };
+
+  previous.addEventListener("click", () => {
+    activeIndex = (activeIndex - 1 + slides.length) % slides.length;
+    render();
+  });
+
+  next.addEventListener("click", () => {
+    activeIndex = (activeIndex + 1) % slides.length;
+    render();
+  });
+
+  render();
 });

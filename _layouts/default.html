@@ -42,13 +42,9 @@
     </main>
 
     {% unless page.url == "/" %}
-    <section class="site-terminal" aria-labelledby="site-terminal-title">
-      <div class="site-terminal-heading">
-        <p class="eyebrow">Site Console</p>
-        <h2 id="site-terminal-title">Explore The Archive</h2>
-      </div>
-      <aside class="terminal-panel terminal-panel--site" aria-label="Interactive site terminal">
-        {% include terminal.html %}
+    <section class="site-terminal site-terminal--compact" aria-label="Site terminal">
+      <aside class="terminal-panel terminal-panel--site terminal-panel--compact" aria-label="Interactive site terminal">
+        {% include terminal.html compact=true %}
       </aside>
     </section>
     {% endunless %}

@@ -57,3 +57,6 @@ temp/
 *.rar
 *.tar
 *.tar.gz
+
+# Keep personal certificate PDFs local; publish redacted PNG badges only.
+assets/images/certs/*.pdf
