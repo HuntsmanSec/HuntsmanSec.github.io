@@ -1,17 +1,45 @@
 title: HuntsmanSec
-description: Cybersecurity Portfolio | SOC Notes | CTF Writeups | Blue Team | Threat Detection
-theme: jekyll-theme-hacker
+description: Cybersecurity portfolio of HuntsmanSec, covering SOC notes, CTF writeups, blue team work and threat detection.
+url: https://huntsmansec.github.io
+baseurl: ""
+lang: en
+timezone: Asia/Manila
 show_downloads: false
+
+author:
+  name: HuntsmanSec
+  github: HuntsmanSec
+
+# Public profile links. Leave a value empty ("") to hide it everywhere.
+social:
+  github: https://github.com/HuntsmanSec
+  linkedin: ""
+  tryhackme: ""
+  hackthebox: ""
+  blog: ""
 
 # Uncomment these after adding a public, redacted PNG at
 # assets/images/certifications.png. Do not use private verification codes or IDs.
 # certification_image: /assets/images/certifications.png
 # certification_image_alt: Public certification overview
 
-author:
-  name: HuntsmanSec
-  github: HuntsmanSec
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
+exclude:
+  - README.md
+  - SECURITY.md
+  - CONTENT_GUIDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - .env.example
+  - _to_delete
+
+# Collections. `nav_label` and `section_url` are used by the navigation,
+# the terminal and the "Back" links, so a new section only needs an entry here.
 collections:
   career:
     output: true
@@ -51,57 +79,67 @@ defaults:
     values:
       layout: post
       category_label: Career Timeline
+      section_url: /career/
   - scope:
       path: ""
       type: ctf
     values:
       layout: post
       category_label: CTF Writeup
+      section_url: /ctf-writeups/
   - scope:
       path: ""
       type: soc
     values:
       layout: post
       category_label: SOC Note
+      section_url: /soc-notes/
   - scope:
       path: ""
       type: cheatsheets
     values:
       layout: post
       category_label: Cheatsheet
+      section_url: /cheatsheets/
   - scope:
       path: ""
       type: trainings
     values:
       layout: post
       category_label: Training
+      section_url: /trainings/
   - scope:
       path: ""
       type: certifications
     values:
       layout: post
       category_label: Certification
+      section_url: /certifications/
   - scope:
       path: ""
       type: talks
     values:
       layout: post
       category_label: Speakership / Mentorship
+      section_url: /speakership-mentorship/
   - scope:
       path: ""
       type: recognitions
     values:
       layout: post
       category_label: Recognition
+      section_url: /recognitions/
   - scope:
       path: ""
       type: conferences
     values:
       layout: post
       category_label: Conference
+      section_url: /conferences/
   - scope:
       path: ""
       type: misc
     values:
       layout: post
       category_label: Misc
+      section_url: /misc/

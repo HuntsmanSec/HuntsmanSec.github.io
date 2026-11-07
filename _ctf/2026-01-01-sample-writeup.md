@@ -1,4 +1,5 @@
 ---
+published: false  # template entry; see CONTENT_GUIDE.md
 title: Sample CTF Writeup
 date: 2026-01-01
 tags: [ctf, forensics, beginner]

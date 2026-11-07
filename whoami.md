@@ -22,8 +22,5 @@ I document cybersecurity learning, SOC workflows, CTF writeups, detection notes,
 
 ## Public Links
 
-- GitHub: [HuntsmanSec](https://github.com/HuntsmanSec)
-- LinkedIn:
-- TryHackMe:
-- Hack The Box:
-- Blog:
+{% for link in site.social %}{% if link[1] != "" %}- [{{ link[0] | replace: "hackthebox", "Hack The Box" | replace: "tryhackme", "TryHackMe" | replace: "linkedin", "LinkedIn" | replace: "github", "GitHub" | replace: "blog", "Blog" }}]({{ link[1] }})
+{% endif %}{% endfor %}

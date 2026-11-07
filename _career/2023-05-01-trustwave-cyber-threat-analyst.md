@@ -1,8 +1,14 @@
 ---
 title: Cyber Threat Analyst
 organization: Trustwave
+logo_image: /assets/images/organizations/trustwave.webp
 logo_mark: TW
 logo_tone: red
+start: 2023-05
+end: 2025-11
+track: security-operations
+employment: Full-time
+note: "Trustwave was acquired by LevelBlue in August 2025; this role continued under LevelBlue."
 date: 2023-05-01
 period: May 2023 - Nov 2025
 location: Remote, Philippines

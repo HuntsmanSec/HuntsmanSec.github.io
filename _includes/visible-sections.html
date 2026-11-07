@@ -1,0 +1,11 @@
+{%- comment -%}
+  Sets `visible_sections` to the sections from _data/sections.yml that have
+  at least one published entry. Usage: {% include visible-sections.html %}
+{%- endcomment -%}
+{%- assign visible_sections = "" | split: "" -%}
+{%- for section in site.data.sections -%}
+  {%- assign section_docs = site[section.collection] -%}
+  {%- if section_docs and section_docs.size > 0 -%}
+    {%- assign visible_sections = visible_sections | push: section -%}
+  {%- endif -%}
+{%- endfor -%}

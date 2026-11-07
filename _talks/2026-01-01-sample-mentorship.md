@@ -1,4 +1,5 @@
 ---
+published: false  # template entry; see CONTENT_GUIDE.md
 title: Sample Mentorship Session
 date: 2026-01-01
 tags: [mentorship, soc, community]

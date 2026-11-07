@@ -5,5 +5,5 @@ permalink: /certifications/
 collection_name: certifications
 item_label: Certification
 kicker: Credentials
-description: Filter certifications by vendor, domain, or status.
+description: Verified credentials with what each one covers and a link to verify it with the issuer.
 ---

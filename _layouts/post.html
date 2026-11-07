@@ -4,21 +4,37 @@ layout: default
 
 <article class="post">
   <header class="post-header">
-    <a class="back-link" href="javascript:history.back()">Back</a>
+    {%- assign back_section = site.data.sections | where: "url", page.section_url | first %}
+    <a class="back-link" href="{{ page.section_url | default: '/' | relative_url }}">← {{ back_section.title | default: "Back" }}</a>
     <p class="eyebrow">{{ page.category_label | default: "Entry" }}</p>
+    {% if page.organization %}
+    <div class="organization-identity organization-identity--post">
+      {% if page.logo_image %}
+      <img class="organization-logo" src="{{ page.logo_image | relative_url }}" alt="{{ page.organization | escape }} logo">
+      {% else %}
+      <span class="organization-mark organization-mark--{{ page.logo_tone | default: 'neutral' | slugify }}" aria-hidden="true">{{ page.logo_mark | default: 'ORG' }}</span>
+      {% endif %}
+      <span class="organization-name">{{ page.organization }}</span>
+    </div>
+    {% endif %}
+    {% if page.badge_image %}
+    <a class="certification-card-badge certification-card-badge--post" href="{{ page.credential_url | default: page.url | relative_url }}" target="_blank" rel="noopener noreferrer" aria-label="View {{ page.title | escape }} credential">
+      <img src="{{ page.badge_image | relative_url }}" alt="{{ page.title | escape }} badge" width="120" height="120">
+    </a>
+    {% endif %}
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
-      {% if page.organization %}
-      <span>{{ page.organization }}</span>
-      {% endif %}
+      {% if page.issuer %}<span>{{ page.issuer }}</span>{% endif %}
       {% if page.period %}
       <span>{{ page.period }}</span>
-      {% elsif page.date %}
+      {% elsif page.date and page.collection != "certifications" %}
       <span>{{ page.date | date: "%Y-%m-%d" }}</span>
       {% endif %}
+      {% if page.employment %}<span>{{ page.employment }}</span>{% endif %}
       {% if page.location %}<span>{{ page.location }}</span>{% endif %}
       {% if page.status %}<span>{{ page.status }}</span>{% endif %}
     </div>
+    {% if page.note %}<p class="career-note">{{ page.note }}</p>{% endif %}
     {% if page.tags %}
     <div class="tag-row">
       {% for tag in page.tags %}
@@ -30,4 +46,14 @@ layout: default
   <div class="prose">
     {{ content }}
   </div>
+  {% if page.media and page.media.size > 0 %}
+  <div class="career-media">
+    {%- for media in page.media %}
+    <figure>
+      <img src="{{ media.image | relative_url }}" alt="{{ media.alt | escape }}" loading="lazy">
+      {% if media.caption %}<figcaption>{{ media.caption }}</figcaption>{% endif %}
+    </figure>
+    {%- endfor %}
+  </div>
+  {% endif %}
 </article>

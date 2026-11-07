@@ -1,0 +1,16 @@
+# Tracks used to colour and filter the career timeline.
+- key: security-operations
+  label: Security Operations
+  color: "#67e8f9"
+- key: offensive-security
+  label: Offensive Security
+  color: "#fb7185"
+- key: public-sector
+  label: Public Sector
+  color: "#f6d365"
+- key: academe
+  label: Teaching
+  color: "#a78bfa"
+- key: network
+  label: Network & Systems
+  color: "#7cffa9"

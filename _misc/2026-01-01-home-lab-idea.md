@@ -1,4 +1,5 @@
 ---
+published: false  # template entry; see CONTENT_GUIDE.md
 title: Home Lab Idea
 date: 2026-01-01
 tags: [homelab, research, detection]

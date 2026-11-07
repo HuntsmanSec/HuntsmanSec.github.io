@@ -1,10 +1,16 @@
 ---
 title: Cyber Threat Engineer
 organization: LevelBlue
+logo_image: /assets/images/organizations/levelblue.svg
 logo_mark: LB
 logo_tone: cyan
+start: 2025-11
+end: present
+track: security-operations
+employment: Full-time
+note: "Continuation of the Trustwave role after LevelBlue acquired Trustwave in August 2025."
 date: 2025-11-01
-period: May 2023 - Present
+period: Nov 2025 - Present
 location: Remote
 tags: [security-operations, incident-response, threat-engineering, managed-security, remote]
 status: Current

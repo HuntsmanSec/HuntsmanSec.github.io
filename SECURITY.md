@@ -31,6 +31,19 @@ git diff --cached
 gitleaks detect --source .
 ```
 
+The same gitleaks scan runs automatically on every push via
+`.github/workflows/site-checks.yml`, but run it locally too so secrets never
+reach GitHub in the first place.
+
+## Also Check
+
+- Commit author: use the GitHub username and the GitHub-provided noreply
+  address (Settings → Emails → "Keep my email addresses private"), never a
+  personal name or email.
+- Numbers and metrics: only publish figures you can verify and that do not
+  reveal client volumes or tooling.
+- Image metadata: strip EXIF/GPS data from photos before adding them.
+
 ## Safe Alternatives
 
 - Use `.env.example` with placeholders.

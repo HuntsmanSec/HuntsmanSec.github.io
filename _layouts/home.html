@@ -1,20 +1,27 @@
 ---
 layout: default
 ---
+{%- include visible-sections.html -%}
+{%- assign ctf_visible = visible_sections | where: "key", "ctf" | first -%}
+{%- assign marquee_certs = site.certifications | where_exp: "cert", "cert.badge_image" | sort: "sort_order" -%}
 
 <section class="hero">
   <div class="hero-copy">
     <h1 class="glitch-title" data-scramble="HuntsmanSec" data-text="HuntsmanSec" aria-label="HuntsmanSec">HuntsmanSec_</h1>
     <p class="hero-text">
-      is a Filipino self-taught cybersecurity professional. He currently serves as a Cyber Threat Engineer for Global Threat Operations at LevelBlue (prev. Trustwave), a prominent managed security service provider. He is recognized for his contributions to digital defense education and public-sector cybersecurity initiatives in the southern region of the Philippines.
+      is a Filipino self-taught cybersecurity professional. He currently serves as a Cyber Threat Engineer for Global Threat Operations at LevelBlue (prev. Trustwave), a prominent managed security service provider, and as a Penetration Testing Consultant with Soros Security Consulting. He is recognized for his contributions to digital defense education and public-sector cybersecurity initiatives in the southern region of the Philippines.
     </p>
     <div class="signal-row" aria-label="Profile highlights">
-      <span>Role: Security Engineer</span>
-      <span>Organization: LevelBlue</span>
+      <span>Role: Cyber Threat Engineer @ LevelBlue</span>
+      <span>Consulting: Pentest @ Soros</span>
     </div>
     <div class="hero-actions">
       <a class="button primary" href="{{ '/career/' | relative_url }}">View Career Timeline</a>
+      {% if ctf_visible %}
       <a class="button" href="{{ '/ctf-writeups/' | relative_url }}">Open Writeups</a>
+      {% else %}
+      <a class="button" href="{{ '/certifications/' | relative_url }}">View Certifications</a>
+      {% endif %}
     </div>
   </div>
   <aside class="terminal-panel terminal-panel--hero cv-card" aria-label="Interactive site terminal">
@@ -22,47 +29,22 @@ layout: default
   </aside>
 </section>
 
+{% if marquee_certs.size > 0 %}
 <section class="certification-marquee" aria-labelledby="certification-marquee-title">
   <p class="eyebrow" id="certification-marquee-title">Certification Signals</p>
   <div class="certification-marquee-window">
     <div class="certification-marquee-track">
-      <div class="certification-marquee-group" role="group" aria-label="Credential links">
-        <a class="certification-badge" href="https://www.credly.com/badges/1a74afeb-6f72-4a31-87ff-2b01c19e5761/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View Cybereason Certified Threat Analyst credential"><img src="{{ '/assets/images/certs/Cybereason Threat Analyst.png' | relative_url }}" alt="Cybereason Certified Threat Analyst"></a>
-        <a class="certification-badge" href="https://cf-us1.mindtickle.com/1290290138401337006/public-content/1712077254014appoutputcertificate0XYKx3vIQ2.png1Wgb.png" target="_blank" rel="noopener noreferrer" aria-label="View Cybereason Certified Threat Hunter credential"><img src="{{ '/assets/images/certs/Cybereason Threat Hunter.png' | relative_url }}" alt="Cybereason Certified Threat Hunter"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/dfb68d32-d2f1-43c1-89aa-39809ee67e52/public_url" target="_blank" rel="noopener noreferrer" aria-label="View ISC2 Certified in Cybersecurity credential"><img src="{{ '/assets/images/certs/ISC2 Certified in Cybersecurity.png' | relative_url }}" alt="ISC2 Certified in Cybersecurity"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/a782ba6b-b201-4fd2-a6db-9a720606e03e" target="_blank" rel="noopener noreferrer" aria-label="View Microsoft AI Skillfest credential"><img src="{{ '/assets/images/certs/Microsoft AI Skillfest.png' | relative_url }}" alt="Microsoft AI Skillfest"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/0e63bc8d-b4c3-4cde-befa-a6823edddf84/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT Data Transfer Security Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-ODSA.png' | relative_url }}" alt="OPSWAT Data Transfer Security Associate"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/2f92f4f2-5d32-4d66-a44a-7d89f8e994bd/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT Endpoint Compliance Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-OECA.png' | relative_url }}" alt="OPSWAT Endpoint Compliance Associate"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/8f307b85-757c-4530-bbca-0a270d1ce612/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT Email Security Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-OESA.png' | relative_url }}" alt="OPSWAT Email Security Associate"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/b9f445fe-0a8b-4a7c-b791-cba0d3efb86a/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT File Security Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-OFSA-transparent.png' | relative_url }}" alt="OPSWAT File Security Associate"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/27d54688-296d-4400-8f41-c84ee90460ba/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT Legacy System Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-OLSA.png' | relative_url }}" alt="OPSWAT Legacy System Associate"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/465752c6-74b5-4948-8adb-292f5e59fb27/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT Network Security Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-ONSA.png' | relative_url }}" alt="OPSWAT Network Security Associate"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/6b359d97-197d-45ce-b008-6fbb3a56d97e/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT Secure Storage Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-OSSA.png' | relative_url }}" alt="OPSWAT Secure Storage Associate"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/1b1347c7-acfd-4cdb-b4dd-dabdbc1c07f6/linked_in_profile" target="_blank" rel="noopener noreferrer" aria-label="View OPSWAT Web Traffic Protection Associate credential"><img src="{{ '/assets/images/certs/OPSWAT-OWPA.png' | relative_url }}" alt="OPSWAT Web Traffic Protection Associate"></a>
-        <a class="certification-badge" href="https://university.sentinelone.com/c/s/yO8-odTQtkS0XQ6e1UB_y9cmuFgWhvca6HJlXn8TA0fyf-vTUsLFMKzFBeZsmGbR" target="_blank" rel="noopener noreferrer" aria-label="View SIREN credential"><img src="{{ '/assets/images/certs/SIREN Expert.png' | relative_url }}" alt="SIREN Expert"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/90acc966-58ec-4894-b1e0-0ac04d424520" target="_blank" rel="noopener noreferrer" aria-label="View CompTIA Security Plus credential"><img src="{{ '/assets/images/certs/SecurityPlus Logo Certified CE.png' | relative_url }}" alt="CompTIA Security Plus Certified CE"></a>
-        <a class="certification-badge" href="https://certs.ine.com/458fa6c8-6d7d-4051-8f90-3baf6b7f6f62#acc.wLBTubjc" target="_blank" rel="noopener noreferrer" aria-label="View INE eJPT credential"><img src="{{ '/assets/images/certs/eJPT.png' | relative_url }}" alt="INE eJPT"></a>
+      {%- for pass in (1..2) %}
+      <div class="certification-marquee-group"{% if pass == 1 %} role="group" aria-label="Credential links"{% else %} aria-hidden="true"{% endif %}>
+        {%- for cert in marquee_certs %}
+        <a class="certification-badge" href="{{ cert.credential_url | default: cert.url | relative_url }}" target="_blank" rel="noopener noreferrer"{% if pass == 1 %} aria-label="View {{ cert.title | escape }} credential"{% else %} tabindex="-1"{% endif %}><img src="{{ cert.badge_image | relative_url }}" alt="{% if pass == 1 %}{{ cert.title | escape }}{% endif %}" width="96" height="96"{% if forloop.index > 6 or pass == 2 %} loading="lazy"{% endif %}></a>
+        {%- endfor %}
       </div>
-      <div class="certification-marquee-group" aria-hidden="true">
-        <a class="certification-badge" href="https://www.credly.com/badges/1a74afeb-6f72-4a31-87ff-2b01c19e5761/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/Cybereason Threat Analyst.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://cf-us1.mindtickle.com/1290290138401337006/public-content/1712077254014appoutputcertificate0XYKx3vIQ2.png1Wgb.png" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/Cybereason Threat Hunter.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/dfb68d32-d2f1-43c1-89aa-39809ee67e52/public_url" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/ISC2 Certified in Cybersecurity.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/a782ba6b-b201-4fd2-a6db-9a720606e03e" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/Microsoft AI Skillfest.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/0e63bc8d-b4c3-4cde-befa-a6823edddf84/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-ODSA.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/2f92f4f2-5d32-4d66-a44a-7d89f8e994bd/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-OECA.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/8f307b85-757c-4530-bbca-0a270d1ce612/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-OESA.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/b9f445fe-0a8b-4a7c-b791-cba0d3efb86a/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-OFSA-transparent.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/27d54688-296d-4400-8f41-c84ee90460ba/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-OLSA.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/465752c6-74b5-4948-8adb-292f5e59fb27/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-ONSA.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/6b359d97-197d-45ce-b008-6fbb3a56d97e/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-OSSA.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/1b1347c7-acfd-4cdb-b4dd-dabdbc1c07f6/linked_in_profile" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/OPSWAT-OWPA.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://university.sentinelone.com/c/s/yO8-odTQtkS0XQ6e1UB_y9cmuFgWhvca6HJlXn8TA0fyf-vTUsLFMKzFBeZsmGbR" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/SIREN Expert.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://www.credly.com/badges/90acc966-58ec-4894-b1e0-0ac04d424520" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/SecurityPlus Logo Certified CE.png' | relative_url }}" alt="" loading="lazy"></a>
-        <a class="certification-badge" href="https://certs.ine.com/458fa6c8-6d7d-4051-8f90-3baf6b7f6f62#acc.wLBTubjc" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="{{ '/assets/images/certs/eJPT.png' | relative_url }}" alt="" loading="lazy"></a>
-      </div>
+      {%- endfor %}
     </div>
   </div>
 </section>
+{% endif %}
 
 {% if site.certification_image %}
 <section class="certification-showcase" aria-labelledby="certification-showcase-title">
@@ -79,6 +61,7 @@ layout: default
 </section>
 {% endif %}
 
+{% if site.data.technologies.size > 0 %}
 <section class="technology-section section" aria-labelledby="technology-title">
   <div class="section-heading">
     <div>
@@ -86,17 +69,22 @@ layout: default
       <h2 id="technology-title">Technology Proficiency</h2>
     </div>
   </div>
-  <div class="technology-grid" role="list" aria-label="Technology alert triage experience">
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--microsoft" aria-hidden="true"><i></i><i></i><i></i><i></i></span><strong>Microsoft Sentinel</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>1,842</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--defender" aria-hidden="true">MD</span><strong>Microsoft Defender</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>1,576</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--crowdstrike" aria-hidden="true">CS</span><strong>CrowdStrike</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>1,329</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--cybereason" aria-hidden="true">CR</span><strong>Cybereason</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>904</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--carbon" aria-hidden="true">CBC</span><strong>Carbon Black Cloud</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>872</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--carbon" aria-hidden="true">CBR</span><strong>Carbon Black Response</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>691</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--splunk" aria-hidden="true">S</span><strong>Splunk</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>1,118</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--sentinelone" aria-hidden="true">S1</span><strong>SentinelOne</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>1,006</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--qradar" aria-hidden="true">QR</span><strong>QRadar</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>786</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--logrhythm" aria-hidden="true">LR</span><strong>LogRhythm</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>642</b></div></article>
-    <article class="technology-card" role="listitem"><div class="technology-card-head"><span class="technology-mark technology-mark--fireeye" aria-hidden="true">FE</span><strong>FireEye</strong></div><div class="technology-card-metric"><span>Alerts / triage</span><b>528</b></div></article>
+  <div class="technology-grid" role="list" aria-label="Security platforms used for alert triage">
+    {%- for tech in site.data.technologies %}
+    <article class="technology-card" role="listitem">
+      <div class="technology-card-head">
+        <span class="technology-mark technology-mark--{{ tech.tone | default: 'neutral' }}" aria-hidden="true">{% if tech.mark == "microsoft" %}<i></i><i></i><i></i><i></i>{% else %}{{ tech.mark }}{% endif %}</span>
+        <strong>{{ tech.name }}</strong>
+      </div>
+      <div class="technology-card-metric">
+        {%- if tech.alerts %}
+        <span>Alerts / triage</span><b>{{ tech.alerts }}</b>
+        {%- else %}
+        <span>Platform</span><b class="technology-card-category">{{ tech.category }}</b>
+        {%- endif %}
+      </div>
+    </article>
+    {%- endfor %}
   </div>
 </section>
+{% endif %}

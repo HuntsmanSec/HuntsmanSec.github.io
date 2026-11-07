@@ -10,13 +10,59 @@ layout: default
   {% endif %}
 </section>
 
-{% assign collection = site.collections | where: "label", page.collection_name | first %}
-{% assign items = collection.docs | sort: "date" | reverse %}
+{%- assign collection = site.collections | where: "label", page.collection_name | first -%}
+{%- if page.collection_name == "certifications" -%}
+  {%- assign items = collection.docs | sort: "sort_order" -%}
+{%- else -%}
+  {%- assign items = collection.docs | sort: "date" | reverse -%}
+{%- endif -%}
 
+{% if items.size == 0 %}
 <section class="collection-shell">
+  <div class="empty-state empty-state--page">
+    <p><span>$</span> ls {{ page.permalink }}</p>
+    <p>Nothing published here yet. New entries will appear here as soon as they are added.</p>
+  </div>
+</section>
+
+{% elsif page.collection_name == "career" %}
+<section class="collection-shell collection-shell--timeline">
+  {% include career-timeline.html items=items %}
+</section>
+
+{% else %}
+{%- comment -%} Certifications filter by issuer; everything else by tag. {%- endcomment -%}
+{%- assign all_tags = "" | split: "" -%}
+{%- for item in items -%}
+  {%- if page.collection_name == "certifications" -%}
+    {%- if item.issuer -%}{%- assign all_tags = all_tags | push: item.issuer -%}{%- endif -%}
+  {%- elsif item.tags -%}
+    {%- assign all_tags = all_tags | concat: item.tags -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign all_tags = all_tags | uniq | sort -%}
+
+<section class="collection-shell" data-filter-root>
+  {% if items.size > 1 and all_tags.size > 1 %}
+  <div class="filter-bar" role="toolbar" aria-label="{% if page.collection_name == 'certifications' %}Filter by issuer{% else %}Filter by tag{% endif %}">
+    <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+    {%- for tag in all_tags %}
+    <button class="filter-button" type="button" data-filter="{{ tag | slugify }}" aria-pressed="false">{{ tag }}</button>
+    {%- endfor %}
+  </div>
+  {% endif %}
+
   <div class="post-grid">
     {% for item in items %}
-    <article class="post-card">
+    {%- assign tag_slugs = "" | split: "" -%}
+    {%- for tag in item.tags -%}{%- assign tag_slug = tag | slugify -%}{%- assign tag_slugs = tag_slugs | push: tag_slug -%}{%- endfor -%}
+    {%- if item.issuer -%}{%- assign issuer_slug = item.issuer | slugify -%}{%- assign tag_slugs = tag_slugs | push: issuer_slug -%}{%- endif -%}
+    <article class="post-card{% if page.collection_name == 'certifications' %} post-card--certification{% endif %}" data-tags="{{ tag_slugs | join: ' ' }}">
+      {% if page.collection_name == "certifications" and item.badge_image %}
+      <a class="certification-card-badge" href="{{ item.credential_url | default: item.url | relative_url }}" target="_blank" rel="noopener noreferrer" aria-label="View {{ item.title | escape }} credential">
+        <img src="{{ item.badge_image | relative_url }}" alt="{{ item.title | escape }} badge" width="96" height="96" loading="lazy">
+      </a>
+      {% endif %}
       {% if item.organization %}
       <div class="organization-identity">
         {% if item.logo_image %}
@@ -28,12 +74,14 @@ layout: default
       </div>
       {% endif %}
       <div class="post-meta">
-        {% if item.period %}
+        {% if page.collection_name == "certifications" %}
+        {% if item.issuer %}<span>{{ item.issuer }}</span>{% endif %}
+        {% elsif item.period %}
         <span>{{ item.period }}</span>
         {% else %}
         <span>{{ item.date | date: "%Y-%m-%d" }}</span>
         {% endif %}
-        <span>{{ item.category_label | default: page.item_label }}</span>
+        {% if item.status %}<span>{{ item.status }}</span>{% endif %}
         {% if item.location %}<span>{{ item.location }}</span>{% endif %}
       </div>
       <h2>{{ item.title }}</h2>
@@ -45,32 +93,25 @@ layout: default
         <span>{{ tag }}</span>
         {% endfor %}
       </div>
-      <button class="card-open" type="button" data-modal-open="modal-{{ forloop.index }}">Open details</button>
+      <div class="card-actions">
+        <button class="card-open" type="button" data-modal-open="modal-{{ forloop.index }}">Quick view</button>
+        <a class="card-link" href="{{ item.url | relative_url }}">Full page</a>
+      </div>
     </article>
 
     <div class="modal" id="modal-{{ forloop.index }}" aria-hidden="true">
       <div class="modal-backdrop" data-modal-close></div>
-      <article class="modal-card{% if page.collection_name == 'career' %} modal-card--career{% endif %}" role="dialog" aria-modal="true" aria-labelledby="modal-title-{{ forloop.index }}">
+      <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title-{{ forloop.index }}">
         <button class="modal-close" type="button" aria-label="Close details" data-modal-close>×</button>
-        {% if item.organization %}
-        <div class="organization-identity organization-identity--modal">
-          {% if item.logo_image %}
-          <img class="organization-logo" src="{{ item.logo_image | relative_url }}" alt="{{ item.organization | escape }} logo" loading="lazy">
-          {% else %}
-          <span class="organization-mark organization-mark--{{ item.logo_tone | default: 'neutral' | slugify }}" aria-hidden="true">{{ item.logo_mark | default: 'ORG' }}</span>
-          {% endif %}
-          <span class="organization-name">{{ item.organization }}</span>
-        </div>
-        {% endif %}
         <div class="post-meta">
-          {% if item.period %}
+          {% if page.collection_name == "certifications" %}
+          {% if item.issuer %}<span>{{ item.issuer }}</span>{% endif %}
+          {% elsif item.period %}
           <span>{{ item.period }}</span>
           {% else %}
           <span>{{ item.date | date: "%Y-%m-%d" }}</span>
           {% endif %}
-          <span>{{ item.category_label | default: page.item_label }}</span>
           {% if item.status %}<span>{{ item.status }}</span>{% endif %}
-          {% if item.location %}<span>{{ item.location }}</span>{% endif %}
         </div>
         <h2 id="modal-title-{{ forloop.index }}">{{ item.title }}</h2>
         <div class="tag-row">
@@ -78,32 +119,6 @@ layout: default
           <span>{{ tag }}</span>
           {% endfor %}
         </div>
-        {% if page.collection_name == "career" %}
-        <section class="career-carousel" data-carousel aria-label="Career media carousel">
-          <div class="career-carousel-viewport">
-            <figure class="career-carousel-slide" data-carousel-slide>
-              <img src="{{ '/assets/images/certs/SIREN Expert.png' | relative_url }}" alt="Career media placeholder 1" loading="lazy">
-            </figure>
-            <figure class="career-carousel-slide" data-carousel-slide hidden>
-              <img src="{{ '/assets/images/certs/SecurityPlus Logo Certified CE.png' | relative_url }}" alt="Career media placeholder 2" loading="lazy">
-            </figure>
-            <figure class="career-carousel-slide" data-carousel-slide hidden>
-              <img src="{{ '/assets/images/certs/eJPT.png' | relative_url }}" alt="Career media placeholder 3" loading="lazy">
-            </figure>
-            <figure class="career-carousel-slide" data-carousel-slide hidden>
-              <img src="{{ '/assets/images/certs/ISC2 Certified in Cybersecurity.png' | relative_url }}" alt="Career media placeholder 4" loading="lazy">
-            </figure>
-            <figure class="career-carousel-slide" data-carousel-slide hidden>
-              <img src="{{ '/assets/images/certs/Microsoft AI Skillfest.png' | relative_url }}" alt="Career media placeholder 5" loading="lazy">
-            </figure>
-          </div>
-          <div class="career-carousel-controls">
-            <button class="carousel-button" type="button" aria-label="Previous career image" data-carousel-prev>←</button>
-            <span data-carousel-status>1 / 5</span>
-            <button class="carousel-button" type="button" aria-label="Next career image" data-carousel-next>→</button>
-          </div>
-        </section>
-        {% endif %}
         <div class="prose modal-content">
           {{ item.content | markdownify }}
         </div>
@@ -112,4 +127,6 @@ layout: default
     </div>
     {% endfor %}
   </div>
+  <p class="empty-state" data-empty-state hidden>No entries match this filter.</p>
 </section>
+{% endif %}

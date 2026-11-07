@@ -1,0 +1,65 @@
+# Site sections. Used by the navigation, the terminal (`ls`, `cd`) and the
+# professional archive page. A section whose collection has no published
+# entries is hidden automatically, so empty pages never show up in the menu.
+# group: primary  -> top navigation
+# group: resources -> "Resources" dropdown
+- key: career
+  title: Career Timeline
+  nav: Career
+  url: /career/
+  collection: career
+  group: primary
+- key: trainings
+  title: Trainings
+  nav: Trainings
+  url: /trainings/
+  collection: trainings
+  group: primary
+- key: certifications
+  title: Certifications
+  nav: Certs
+  url: /certifications/
+  collection: certifications
+  group: primary
+- key: talks
+  title: Speakership and Mentorship
+  nav: Talks
+  url: /speakership-mentorship/
+  collection: talks
+  group: primary
+- key: ctf
+  title: CTF Participation and Writeups
+  nav: CTFs
+  url: /ctf-writeups/
+  collection: ctf
+  group: primary
+- key: soc
+  title: SOC Notes
+  nav: SOC Notes
+  url: /soc-notes/
+  collection: soc
+  group: resources
+- key: cheatsheets
+  title: Cheatsheets
+  nav: Cheatsheets
+  url: /cheatsheets/
+  collection: cheatsheets
+  group: resources
+- key: recognitions
+  title: Recognitions
+  nav: Recognitions
+  url: /recognitions/
+  collection: recognitions
+  group: resources
+- key: conferences
+  title: Conferences Attended
+  nav: Conferences
+  url: /conferences/
+  collection: conferences
+  group: resources
+- key: misc
+  title: Misc
+  nav: Misc
+  url: /misc/
+  collection: misc
+  group: resources

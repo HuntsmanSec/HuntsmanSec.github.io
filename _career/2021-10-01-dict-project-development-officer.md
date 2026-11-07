@@ -1,8 +1,13 @@
 ---
 title: Project Development Officer II
 organization: Department of Information and Communications Technology - Philippines
+logo_image: /assets/images/organizations/dict.png
 logo_mark: DICT
 logo_tone: gold
+start: 2021-10
+end: 2022-12
+track: public-sector
+employment: Full-time
 date: 2021-10-01
 period: Oct 2021 - Dec 2022
 location: Zamboanga City, Philippines

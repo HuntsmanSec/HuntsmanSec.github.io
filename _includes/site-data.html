@@ -1,0 +1,21 @@
+{%- comment -%}
+  Data for the interactive terminal, generated from the site content so the
+  terminal never drifts from the pages. Requires visible-sections.html first.
+{%- endcomment -%}
+{%- assign terminal_certs = site.certifications | sort: "sort_order" -%}
+<script type="application/json" id="site-data">
+{
+  "sections": [
+    {"key": "home", "title": "Home", "path": {{ '/' | relative_url | jsonify }}},
+    {"key": "whoami", "title": "Whoami", "path": {{ '/whoami/' | relative_url | jsonify }}}
+    {%- for section in visible_sections -%},
+    {"key": {{ section.key | jsonify }}, "title": {{ section.title | jsonify }}, "path": {{ section.url | relative_url | jsonify }}}
+    {%- endfor %}
+  ],
+  "certifications": [
+    {%- for cert in terminal_certs -%}
+    {"title": {{ cert.title | jsonify }}, "issuer": {{ cert.issuer | default: "" | jsonify }}, "path": {{ cert.url | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>

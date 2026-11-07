@@ -1,8 +1,13 @@
 ---
 title: Programming Instructor (C++)
 organization: Claret School of Zamboanga City
+logo_image: /assets/images/organizations/claret.png
 logo_mark: CSZ
 logo_tone: blue
+start: 2016-03
+end: 2017-03
+track: academe
+employment: Full-time
 date: 2016-03-01
 period: Mar 2016 - Mar 2017
 location: Philippines

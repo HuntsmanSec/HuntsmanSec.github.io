@@ -1,10 +1,15 @@
 ---
 title: Information System Analyst
 organization: Department of Information and Communications Technology - Philippines
+logo_image: /assets/images/organizations/dict.png
 logo_mark: DICT
 logo_tone: gold
+start: 2018-08
+end: 2021-09
+track: public-sector
+employment: Full-time
 date: 2018-08-01
-period: Aug 2018 - Oct 2022
+period: Aug 2018 - Sep 2021
 location: Philippines
 tags: [public-sector, ebpls, tech4ed, freewifi4all, digital-inclusion, mysql, linux]
 status: Completed

@@ -1,8 +1,13 @@
 ---
 title: Visiting Lecturer
 organization: Ateneo de Zamboanga University
+logo_image: /assets/images/organizations/adzu.webp
 logo_mark: AdZU
 logo_tone: blue
+start: 2022-08
+end: 2024-06
+track: academe
+employment: Part-time
 date: 2022-08-01
 period: Aug 2022 - Jun 2024
 location: Zamboanga City, Philippines

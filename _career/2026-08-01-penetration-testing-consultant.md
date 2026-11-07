@@ -1,21 +1,26 @@
 ---
 title: Penetration Testing Consultant
-organization: Confidential Security Consultancy
-logo_mark: "--"
-logo_tone: neutral
+organization: Soros Security Consulting
+logo_image: /assets/images/organizations/soros.svg
+logo_mark: SSC
+logo_tone: gold
+start: 2026-08
+end: present
+track: offensive-security
+employment: Consulting
 date: 2026-08-01
-period: Recent - Present
-location: Confidential
-tags: [pentesting, consulting, authorized-testing, confidential]
+period: Aug 2026 - Present
+location: Philippines
+tags: [pentesting, consulting, authorized-testing, vulnerability-assessment]
 status: Current
-excerpt: Authorized security assessments and remediation reporting for a confidential consulting engagement.
+excerpt: Authorized penetration testing and remediation-focused reporting for Soros Security Consulting, a Philippine cybersecurity consultancy.
 ---
 
 ## Engagement
 
-Current penetration testing consulting engagement. The client and consultancy name are intentionally withheld from this public portfolio.
+Penetration testing consultant with Soros Security Consulting, a Philippine cybersecurity services firm focused on governance, risk and compliance, security assessments and corporate training.
 
-## Public-Safe Focus
+## Focus
 
 - Perform assessments only within documented authorization and scope.
 - Validate security findings and document remediation-focused results.
@@ -23,5 +28,4 @@ Current penetration testing consulting engagement. The client and consultancy na
 
 ## Disclosure Boundary
 
-Client identity, engagement dates, targets, methods, tools, findings, evidence, and reports are not published.
-
+Client identities, engagement dates, targets, methods, tools, findings, evidence, and reports are not published.

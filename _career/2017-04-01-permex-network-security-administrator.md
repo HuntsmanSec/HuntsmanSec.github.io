@@ -1,8 +1,13 @@
 ---
 title: Network Security Administrator
 organization: Permex Producer & Exporter Corp.
+logo_image: /assets/images/organizations/permex.webp
 logo_mark: PPC
 logo_tone: cyan
+start: 2017-04
+end: 2018-04
+track: network
+employment: Full-time
 date: 2017-04-01
 period: Apr 2017 - Apr 2018
 location: Zamboanga City, Philippines

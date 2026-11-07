@@ -1,34 +1,42 @@
-# Environment files
+# Environment and local configuration
 .env
 .env.*
-!.env.example
+*.local
 
-# Secrets and credentials
+# Keys, certificates and credential stores
 *.pem
 *.key
 *.crt
 *.p12
 *.pfx
 *.kdbx
-id_rsa
-id_rsa.pub
-id_ed25519
-id_ed25519.pub
-credentials.json
-token.json
-secrets.yml
-secrets.yaml
-config.secret.*
+id_rsa*
+id_ed25519*
+credentials*.json
+token*.json
+secrets.y*ml
 *.secret.*
 
-# Cloud credentials
+# Cloud and cluster credentials
 .aws/
 .azure/
 .gcloud/
-kubeconfig
 .kube/
+kubeconfig
 
-# Local/dev files
+# Documents (publish redacted images only)
+*.pdf
+*.doc
+*.docx
+
+# Archives
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Editor and OS files
 .DS_Store
 Thumbs.db
 .vscode/
@@ -36,27 +44,19 @@ Thumbs.db
 *.swp
 *.swo
 
-# Dependencies/build output
-node_modules/
-vendor/
+# Build output and dependencies
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+.bundle/
+vendor/
+node_modules/
 
-# Logs and temporary files
+# Logs and scratch
 *.log
 logs/
 tmp/
 temp/
 *.tmp
-
-# Archives that may contain sensitive material
-*.zip
-*.7z
-*.rar
-*.tar
-*.tar.gz
-
-# Keep personal certificate PDFs local; publish redacted PNG badges only.
-assets/images/certs/*.pdf
+_to_delete/

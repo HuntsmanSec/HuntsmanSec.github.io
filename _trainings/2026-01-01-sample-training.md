@@ -1,4 +1,5 @@
 ---
+published: false  # template entry; see CONTENT_GUIDE.md
 title: Sample Training Entry
 date: 2026-01-01
 tags: [training, blue-team, soc]

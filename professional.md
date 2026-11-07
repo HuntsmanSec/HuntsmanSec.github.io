@@ -9,9 +9,5 @@ This page keeps professional sections grouped away from the homepage so the main
 
 ## Archives
 
-- [Trainings](/trainings/)
-- [Certifications](/certifications/)
-- [Speakership and Mentorship](/speakership-mentorship/)
-- [Recognitions](/recognitions/)
-- [Conferences Attended](/conferences/)
-- [Misc](/misc/)
+{% include visible-sections.html %}{% for section in visible_sections %}{% unless section.key == "career" %}- [{{ section.title }}]({{ section.url | relative_url }})
+{% endunless %}{% endfor %}

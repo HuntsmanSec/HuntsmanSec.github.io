@@ -1,0 +1,52 @@
+# Technology proficiency cards on the homepage.
+#
+# `alerts` is optional. Leave it out (or empty) until you have verified,
+# public-safe numbers; the card then shows the platform category instead of
+# a count. Do not publish client names, tenant details or case metrics.
+#
+# mark / tone control the small coloured badge on each card.
+- name: Microsoft Sentinel
+  category: SIEM
+  mark: microsoft
+  tone: microsoft
+  # alerts: 1842
+- name: Microsoft Defender
+  category: XDR / EDR
+  mark: MD
+  tone: defender
+- name: CrowdStrike Falcon
+  category: EDR
+  mark: CS
+  tone: crowdstrike
+- name: Cybereason
+  category: EDR / XDR
+  mark: CR
+  tone: cybereason
+- name: Carbon Black Cloud
+  category: EDR
+  mark: CBC
+  tone: carbon
+- name: Carbon Black Response
+  category: EDR
+  mark: CBR
+  tone: carbon
+- name: Splunk
+  category: SIEM
+  mark: S
+  tone: splunk
+- name: SentinelOne
+  category: EDR / XDR
+  mark: S1
+  tone: sentinelone
+- name: IBM QRadar
+  category: SIEM
+  mark: QR
+  tone: qradar
+- name: LogRhythm
+  category: SIEM
+  mark: LR
+  tone: logrhythm
+- name: FireEye (Trellix)
+  category: Network / Endpoint
+  mark: FE
+  tone: fireeye
