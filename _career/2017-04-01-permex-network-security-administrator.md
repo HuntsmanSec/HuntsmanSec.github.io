@@ -20,8 +20,3 @@ excerpt: Network security and troubleshooting role in an enterprise operating en
 
 - Supported network security administration and troubleshooting responsibilities.
 - Applied practical networking knowledge to assist reliable and secure day-to-day operations.
-
-## Disclosure Boundary
-
-Network topology, infrastructure details, configurations, credentials, and internal operating information are not published.
-

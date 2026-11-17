@@ -27,8 +27,3 @@ excerpt: Supported digital-government and inclusion programs through technical a
 ## Public-Safe Skills
 
 Linux, MySQL, digital-government implementation, technical training, and stakeholder support.
-
-## Disclosure Boundary
-
-Government records, participant information, system data, network diagrams, credentials, implementation details, and unpublished project artifacts are not published.
-

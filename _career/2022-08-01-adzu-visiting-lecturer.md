@@ -21,8 +21,3 @@ excerpt: Part-time teaching role covering public-safe learning topics in network
 - Supported part-time learning and academic activities as a visiting lecturer.
 - Public profile skills include Network Security and Linux Security.
 - Encouraged practical, responsible security learning for students and early-career practitioners.
-
-## Disclosure Boundary
-
-Student information, course materials, assessments, and internal university systems are not published.
-

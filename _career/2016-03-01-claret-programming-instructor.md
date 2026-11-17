@@ -21,7 +21,3 @@ excerpt: Full-time programming instruction focused on C++ and object-oriented pr
 - Delivered instruction in C++ programming.
 - Supported foundational object-oriented programming learning.
 - Helped students build practical software-development fundamentals.
-
-## Disclosure Boundary
-
-Student records, assessments, curriculum materials, and internal school information are not published.

@@ -1121,9 +1121,6 @@ pre {
   flex: 0 0 40px;
   width: 40px;
   height: 40px;
-  padding: 4px;
-  border: 1px solid var(--line);
-  background: rgba(5, 7, 11, 0.82);
   object-fit: contain;
 }
 
@@ -1875,9 +1872,6 @@ pre code {
   width: 96px;
   height: 64px;
   place-items: center;
-  padding: 8px;
-  border: 1px solid var(--line);
-  background: rgba(5, 7, 11, 0.85);
 }
 
 .career-logo img {
@@ -2053,7 +2047,6 @@ pre code {
   .career-logo {
     width: 64px;
     height: 46px;
-    padding: 5px;
   }
 
   .career-title {

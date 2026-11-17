@@ -24,8 +24,3 @@ excerpt: Monitored and investigated security alerts while supporting incident re
 - Support timely case response in line with documented service-level expectations.
 - Document investigation actions so information can be communicated clearly to internal teams and clients.
 - Escalate security incidents to clients, Tier 2, or team leadership when appropriate.
-
-## Disclosure Boundary
-
-Customer data, alert content, incident evidence, playbooks, detection logic, platform configuration, and case metrics are excluded.
-

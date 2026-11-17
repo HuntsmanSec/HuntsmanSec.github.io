@@ -28,8 +28,3 @@ excerpt: Supported public-sector digital programs, cybersecurity awareness, inci
 
 - Completed five courses from the ASEAN-Japan Cybersecurity Capacity Building Center.
 - Earned public cybersecurity learning certificates, including coursework associated with the U.S. Cybersecurity and Infrastructure Security Agency.
-
-## Disclosure Boundary
-
-Affected organizations, incident details, evidence, vulnerability data, internal memoranda, client identities, and unpublished program records are not included.
-

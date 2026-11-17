@@ -25,7 +25,3 @@ excerpt: One sentence summary shown on the timeline.
 ## Responsibilities
 
 - What you did, at a public-safe level.
-
-## Disclosure Boundary
-
-What is intentionally not published (clients, cases, tooling details).
