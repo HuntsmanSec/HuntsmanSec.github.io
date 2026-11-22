@@ -110,6 +110,21 @@
     .item span { color: var(--muted); font-size: 14px; }
     .note { color: var(--muted); font-size: 13px; margin: 12px 2px 0; }
 
+    .uses { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+    .use {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+    }
+    .use { display: flex; flex-direction: column; }
+    .use code { margin-top: auto; }
+    .use-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .use-icon { font-size: 22px; line-height: 1; }
+    .use strong { font-size: 15.5px; }
+    .use code {
+      display: block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13.5px; color: var(--green); background: rgba(124, 255, 169, 0.07);
+      border-radius: 8px; padding: 6px 10px; overflow-wrap: anywhere;
+    }
+
     .devices {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px;
     }
@@ -167,6 +182,21 @@
         <div class="row"><div class="k s">123</div><div class="k space">space</div><div class="k s ret">return</div></div>
       </div>
     </div>
+
+    <section aria-labelledby="uses">
+      <h2 id="uses">Best for typing words and numbers together</h2>
+      <p class="sub">If you keep tapping <span class="mono">123</span> and back, NumRow saves you the trip.</p>
+      <div class="uses">
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">💬</span><strong>Chats &amp; plans</strong></div><code>See you at 7:30, table for 4</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📍</span><strong>Addresses &amp; deliveries</strong></div><code>Unit 12B, 2468 Rizal Ave</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📅</span><strong>Dates, times &amp; schedules</strong></div><code>Due 11/28, call at 3pm</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">🛒</span><strong>Shopping lists &amp; budgets</strong></div><code>2 kg rice, 12 eggs, ₱450</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📚</span><strong>School &amp; work notes</strong></div><code>Q3 sales up 18% vs 2025</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">💻</span><strong>Tech &amp; IT notes</strong></div><code>Port 443 open on 10.0.0.25</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📦</span><strong>Order &amp; tracking numbers</strong></div><code>Order #A1093-5521 shipped</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">🎮</span><strong>Usernames &amp; game chat</strong></div><code>gg! final score 21-19</code></div>
+      </div>
+    </section>
 
     <section aria-labelledby="features">
       <h2 id="features">Everything you already use still works</h2>
