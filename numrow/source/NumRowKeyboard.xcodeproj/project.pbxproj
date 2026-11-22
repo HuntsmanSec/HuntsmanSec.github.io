@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1727D02CD44CA2AAC275618D /* NumRowKeyboardExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3B4F002C0EBF43711C4D9724 /* NumRowKeyboardExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		19D20F8DACC791EB5FDC21E9 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4CCB809E199A35D578B2CC /* KeyboardView.swift */; };
+		4B2797859BAE50BF1F34D402 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07EA68208558B46E6821FB /* KeyboardViewController.swift */; };
+		4B6EC516F09B73E5E1DD7EF7 /* KeyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D89FE9D329F0588F031B175 /* KeyButton.swift */; };
+		5E127EC068A256F4CDE9773F /* Autocorrector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A04F4B78BED1B4AA33BB12 /* Autocorrector.swift */; };
+		62ADFAF7EDC910F8379C61C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C8F32E95A9FD25E99B0F8 /* ContentView.swift */; };
+		6EEEE39B1AB4355FA617C29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 926215B008EBBA578C8620F6 /* Assets.xcassets */; };
+		71AB6BC2FB08210CC222BBC1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2C58813616821DD12252981 /* PrivacyInfo.xcprivacy */; };
+		A7AC0BC1F36FC01D0D722B87 /* NumRowKeyboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D0861A7608FCB7CEF6E75 /* NumRowKeyboardApp.swift */; };
+		B532F4DF163EE24CAEF64E99 /* SuggestionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035343D11CFC76D1EB7209BE /* SuggestionBar.swift */; };
+		B9C08E7F38DAC4302BCBB23F /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ADB77979C32CF1CF3D82 /* KeyboardLayout.swift */; };
+		E9565ECB894EC9379E4179E1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 52E7282D912B9AE13E16DC86 /* PrivacyInfo.xcprivacy */; };
+		EC4BF19342B3939DF8EE8612 /* AccentPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD0E31006044B6C8DBCA55 /* AccentPopup.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		431387EB7262E1CFC79B125E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46F86FAA6BBF9AC94A7E4595 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E599F9B8792E58EB83FE964;
+			remoteInfo = NumRowKeyboardExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9FF52D3475156A3ABE697CCD /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1727D02CD44CA2AAC275618D /* NumRowKeyboardExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		035343D11CFC76D1EB7209BE /* SuggestionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionBar.swift; sourceTree = "<group>"; };
+		09AD0E31006044B6C8DBCA55 /* AccentPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentPopup.swift; sourceTree = "<group>"; };
+		16C0B3291DBAF0FB76D9D64D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A4C8F32E95A9FD25E99B0F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B4F002C0EBF43711C4D9724 /* NumRowKeyboardExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NumRowKeyboardExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4CCB809E199A35D578B2CC /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		4A69ADB77979C32CF1CF3D82 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
+		52E7282D912B9AE13E16DC86 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		553D0861A7608FCB7CEF6E75 /* NumRowKeyboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumRowKeyboardApp.swift; sourceTree = "<group>"; };
+		5A07B39B079D429B404E4D0F /* NumRowKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumRowKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D89FE9D329F0588F031B175 /* KeyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyButton.swift; sourceTree = "<group>"; };
+		926215B008EBBA578C8620F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA07EA68208558B46E6821FB /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		D2C58813616821DD12252981 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D57361E5FF113B43F5D4E7E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9A04F4B78BED1B4AA33BB12 /* Autocorrector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocorrector.swift; sourceTree = "<group>"; };
+		EB41F43E31E257C305C964EE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BCCCE497AA012DCD2E0EAF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A75A52574E553B1077B38116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		107135D82C0898ACC5295C33 /* NumRowKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				553D0861A7608FCB7CEF6E75 /* NumRowKeyboardApp.swift */,
+				1A4C8F32E95A9FD25E99B0F8 /* ContentView.swift */,
+				926215B008EBBA578C8620F6 /* Assets.xcassets */,
+				52E7282D912B9AE13E16DC86 /* PrivacyInfo.xcprivacy */,
+				D57361E5FF113B43F5D4E7E1 /* Info.plist */,
+			);
+			path = NumRowKeyboard;
+			sourceTree = "<group>";
+		};
+		3936A56E033FE156B0D38F79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A07B39B079D429B404E4D0F /* NumRowKeyboard.app */,
+				3B4F002C0EBF43711C4D9724 /* NumRowKeyboardExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		890A11CEDD5A4E7BFA76F946 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CA07EA68208558B46E6821FB /* KeyboardViewController.swift */,
+				3F4CCB809E199A35D578B2CC /* KeyboardView.swift */,
+				8D89FE9D329F0588F031B175 /* KeyButton.swift */,
+				4A69ADB77979C32CF1CF3D82 /* KeyboardLayout.swift */,
+				09AD0E31006044B6C8DBCA55 /* AccentPopup.swift */,
+				035343D11CFC76D1EB7209BE /* SuggestionBar.swift */,
+				E9A04F4B78BED1B4AA33BB12 /* Autocorrector.swift */,
+				D2C58813616821DD12252981 /* PrivacyInfo.xcprivacy */,
+				16C0B3291DBAF0FB76D9D64D /* Info.plist */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		B19911C44BD755AB4F173858 = {
+			isa = PBXGroup;
+			children = (
+				EB41F43E31E257C305C964EE /* README.md */,
+				107135D82C0898ACC5295C33 /* NumRowKeyboard */,
+				890A11CEDD5A4E7BFA76F946 /* Keyboard */,
+				3936A56E033FE156B0D38F79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E599F9B8792E58EB83FE964 /* NumRowKeyboardExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54413A0119BA852953388CB0 /* Build configuration list for PBXNativeTarget "NumRowKeyboardExtension" */;
+			buildPhases = (
+				EE8198A1FB5C79C1B53CEA72 /* Sources */,
+				A75A52574E553B1077B38116 /* Frameworks */,
+				B34DA598ACE525E5D15DF4A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NumRowKeyboardExtension;
+			productName = NumRowKeyboardExtension;
+			productReference = 3B4F002C0EBF43711C4D9724 /* NumRowKeyboardExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		C4F1B4ACBD326E86B48FA1A3 /* NumRowKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4132F69B986A244D2B8DB735 /* Build configuration list for PBXNativeTarget "NumRowKeyboard" */;
+			buildPhases = (
+				6634E4E6CF27A4DB3739CFE3 /* Sources */,
+				7BCCCE497AA012DCD2E0EAF8 /* Frameworks */,
+				50054D6B1C75A22C3200B9AF /* Resources */,
+				9FF52D3475156A3ABE697CCD /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2254342BECCEAFBD04538E0A /* PBXTargetDependency */,
+			);
+			name = NumRowKeyboard;
+			productName = NumRowKeyboard;
+			productReference = 5A07B39B079D429B404E4D0F /* NumRowKeyboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F86FAA6BBF9AC94A7E4595 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					2E599F9B8792E58EB83FE964 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					C4F1B4ACBD326E86B48FA1A3 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 2D6CADEF21B99EA5E890ABE8 /* Build configuration list for PBXProject "NumRowKeyboard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B19911C44BD755AB4F173858;
+			productRefGroup = 3936A56E033FE156B0D38F79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4F1B4ACBD326E86B48FA1A3 /* NumRowKeyboard */,
+				2E599F9B8792E58EB83FE964 /* NumRowKeyboardExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50054D6B1C75A22C3200B9AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EEEE39B1AB4355FA617C29C /* Assets.xcassets in Resources */,
+				E9565ECB894EC9379E4179E1 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B34DA598ACE525E5D15DF4A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71AB6BC2FB08210CC222BBC1 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6634E4E6CF27A4DB3739CFE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7AC0BC1F36FC01D0D722B87 /* NumRowKeyboardApp.swift in Sources */,
+				62ADFAF7EDC910F8379C61C6 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE8198A1FB5C79C1B53CEA72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2797859BAE50BF1F34D402 /* KeyboardViewController.swift in Sources */,
+				19D20F8DACC791EB5FDC21E9 /* KeyboardView.swift in Sources */,
+				4B6EC516F09B73E5E1DD7EF7 /* KeyButton.swift in Sources */,
+				B9C08E7F38DAC4302BCBB23F /* KeyboardLayout.swift in Sources */,
+				EC4BF19342B3939DF8EE8612 /* AccentPopup.swift in Sources */,
+				B532F4DF163EE24CAEF64E99 /* SuggestionBar.swift in Sources */,
+				5E127EC068A256F4CDE9773F /* Autocorrector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2254342BECCEAFBD04538E0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E599F9B8792E58EB83FE964 /* NumRowKeyboardExtension */;
+			targetProxy = 431387EB7262E1CFC79B125E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		159BA4A89132F47014DA2C41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Keyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NumRow;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huntsmansec.numrowkeyboard.keyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		293A5B816A2FADE15A3C7B02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4ED3C4B22349DD5A28B27128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B5FDE512C76571C8AFD6A608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NumRowKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "NumRow Keyboard";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huntsmansec.numrowkeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E23CA1E4E92FDC29B4D4AF7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Keyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NumRow;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huntsmansec.numrowkeyboard.keyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E6D96502596D7E7887B76646 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NumRowKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "NumRow Keyboard";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huntsmansec.numrowkeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D6CADEF21B99EA5E890ABE8 /* Build configuration list for PBXProject "NumRowKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ED3C4B22349DD5A28B27128 /* Debug */,
+				293A5B816A2FADE15A3C7B02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4132F69B986A244D2B8DB735 /* Build configuration list for PBXNativeTarget "NumRowKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5FDE512C76571C8AFD6A608 /* Debug */,
+				E6D96502596D7E7887B76646 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54413A0119BA852953388CB0 /* Build configuration list for PBXNativeTarget "NumRowKeyboardExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				159BA4A89132F47014DA2C41 /* Debug */,
+				E23CA1E4E92FDC29B4D4AF7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595 /* Project object */;
+}
