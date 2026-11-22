@@ -23,7 +23,7 @@ struct ContentView: View {
                 } header: {
                     Text("Set up")
                 } footer: {
-                    Text("Leave \"Allow Full Access\" off. NumRow doesn't need it.")
+                    Text("Optional: turn on \"Allow Full Access\" for haptics on every key. NumRow works fully without it, and it never connects to the internet either way.")
                 }
 
                 Section {
@@ -38,8 +38,8 @@ struct ContentView: View {
                 Section("Your privacy") {
                     PrivacyRow(
                         icon: "lock.shield",
-                        title: "No Full Access",
-                        detail: "iOS keeps the keyboard sealed off from the internet, your clipboard and other apps."
+                        title: "Full Access is optional",
+                        detail: "It only adds haptics. NumRow contains no internet code, so nothing can leave your iPhone."
                     )
                     PrivacyRow(
                         icon: "eye.slash",

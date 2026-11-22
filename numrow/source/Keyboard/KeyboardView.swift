@@ -6,6 +6,8 @@ protocol KeyboardViewDelegate: AnyObject {
     func keyboardViewDidEndDelete(_ keyboardView: KeyboardView)
     /// Space-bar trackpad: move the cursor left (negative) or right (positive) by characters.
     func keyboardView(_ keyboardView: KeyboardView, moveCursorBy offset: Int)
+    /// A finger just went down on a key, or a long-press popup opened (for sound and haptics).
+    func keyboardViewDidPressKey(_ keyboardView: KeyboardView)
 }
 
 /// Lays out the keys proportionally so one layout fits every iPhone size and orientation.
@@ -83,6 +85,9 @@ final class KeyboardView: UIView {
     }
 
     private func wire(_ button: KeyButton) {
+        // Click/haptic on touch-down, like the system keyboard, so it feels instant.
+        button.addTarget(self, action: #selector(keyDown), for: .touchDown)
+
         switch button.key.kind {
         case .nextKeyboard:
             if let controller = inputController {
@@ -102,6 +107,10 @@ final class KeyboardView: UIView {
 
     @objc private func keyTapped(_ sender: KeyButton) {
         delegate?.keyboardView(self, didTap: sender.key.kind)
+    }
+
+    @objc private func keyDown() {
+        delegate?.keyboardViewDidPressKey(self)
     }
 
     @objc private func deleteDown() {
@@ -183,10 +192,12 @@ final class KeyboardView: UIView {
         popup.select(atX: popup.convert(point, from: self).x)
         accentPopup = popup
         pressMode = .accents
+        delegate?.keyboardViewDidPressKey(self)
     }
 
     private func beginTrackpad(at point: CGPoint) {
         pressMode = .trackpad
+        delegate?.keyboardViewDidPressKey(self)
         trackpadAnchorX = point.x
         rows.joined().forEach { $0.setLegendHidden(true) }
     }

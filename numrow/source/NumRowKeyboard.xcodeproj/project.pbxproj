@@ -12,6 +12,7 @@
 		4B2797859BAE50BF1F34D402 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07EA68208558B46E6821FB /* KeyboardViewController.swift */; };
 		4B6EC516F09B73E5E1DD7EF7 /* KeyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D89FE9D329F0588F031B175 /* KeyButton.swift */; };
 		5E127EC068A256F4CDE9773F /* Autocorrector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A04F4B78BED1B4AA33BB12 /* Autocorrector.swift */; };
+		A00CCC09508D3D8D323BAD36 /* KeyFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AE5B0577E47CE2A87892B4 /* KeyFeedback.swift */; };
 		62ADFAF7EDC910F8379C61C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C8F32E95A9FD25E99B0F8 /* ContentView.swift */; };
 		6EEEE39B1AB4355FA617C29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 926215B008EBBA578C8620F6 /* Assets.xcassets */; };
 		71AB6BC2FB08210CC222BBC1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2C58813616821DD12252981 /* PrivacyInfo.xcprivacy */; };
@@ -63,6 +64,7 @@
 		D2C58813616821DD12252981 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D57361E5FF113B43F5D4E7E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9A04F4B78BED1B4AA33BB12 /* Autocorrector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocorrector.swift; sourceTree = "<group>"; };
+		23AE5B0577E47CE2A87892B4 /* KeyFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFeedback.swift; sourceTree = "<group>"; };
 		EB41F43E31E257C305C964EE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				09AD0E31006044B6C8DBCA55 /* AccentPopup.swift */,
 				035343D11CFC76D1EB7209BE /* SuggestionBar.swift */,
 				E9A04F4B78BED1B4AA33BB12 /* Autocorrector.swift */,
+				23AE5B0577E47CE2A87892B4 /* KeyFeedback.swift */,
 				D2C58813616821DD12252981 /* PrivacyInfo.xcprivacy */,
 				16C0B3291DBAF0FB76D9D64D /* Info.plist */,
 			);
@@ -248,6 +251,7 @@
 				EC4BF19342B3939DF8EE8612 /* AccentPopup.swift in Sources */,
 				B532F4DF163EE24CAEF64E99 /* SuggestionBar.swift in Sources */,
 				5E127EC068A256F4CDE9773F /* Autocorrector.swift in Sources */,
+				A00CCC09508D3D8D323BAD36 /* KeyFeedback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

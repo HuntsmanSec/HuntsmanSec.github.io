@@ -2,7 +2,7 @@
 
 Free and open source (MIT License). Coming free to the App Store. You can also build it yourself from this folder. Overview: https://huntsmansec.github.io/numrow/ · Privacy policy: https://huntsmansec.github.io/numrow/privacy.html
 
-An English (US) iPhone keyboard with a **number row always on top**. It has no Full Access, no network access and no data collection.
+An English (US) iPhone keyboard with a **number row always on top**. It contains no network code and collects no data. Full Access is optional and only adds haptics.
 
 ```
  1  2  3  4  5  6  7  8  9  0     ← always visible, in every mode
@@ -35,14 +35,15 @@ Requirements: iOS 16+, iPhone. Builds with Xcode 15 or newer.
 
 ## Security and privacy design
 
-- **No Full Access.** `RequestsOpenAccess = NO`. iOS sandboxes the keyboard, so it can't use the network, read the clipboard or share data with the app. This is enforced by the operating system, not just a promise.
+- **Full Access is optional.** `RequestsOpenAccess = YES` only so users can choose it. Everything works with it off, and then iOS sandboxes the keyboard completely. With it on, NumRow uses it for one thing: key-press haptics (`KeyFeedback.swift`, guarded by `hasFullAccess`).
+- **No network code at all.** There is no `URLSession`, socket or analytics SDK anywhere in the project, so nothing can be sent even with Full Access on.
 - **No keystroke storage or logging.** There's no `print`/`os_log`, no files, no UserDefaults, no database.
 - **Minimal text access.** The keyboard reads only the text just before the cursor, in memory, for auto-capitalization and the double-space period.
 - **No third-party code.** No SDKs, analytics, ads or packages, so nothing in the supply chain needs auditing.
 - **Secure fields are protected by iOS.** Password and one-time-code fields always switch to Apple's keyboard.
 - **Accessibility.** Every key has a VoiceOver label and the keyboard-key trait.
 
-If you ever add features that need Full Access (haptics, sync, cloud themes), treat that as a major privacy change. Update the privacy policy and the App Store privacy label, and keep the keyboard fully usable with Full Access off (App Review guideline 4.4.1).
+Full Access is used only for haptics. If you ever add anything else that relies on it (sync, cloud themes), treat that as a major privacy change: update the privacy policy and the App Store privacy label, and keep the keyboard fully usable with Full Access off (App Review guideline 4.4.1).
 
 ## Before submitting to the App Store
 
@@ -59,7 +60,8 @@ If you ever add features that need Full Access (haptics, sync, cloud themes), tr
 
 - Password, secure and phone-pad fields always use Apple's keyboard.
 - Many banking, e-wallet and enterprise apps allow only Apple's keyboard. iOS switches over automatically; this is the app's security choice and applies to every third-party keyboard.
-- No dictation microphone, no key-press haptics without Full Access, and the extension has a tight memory limit (about 50–70 MB).
+- Key-press haptics need Full Access (an iOS rule). The key-click sound follows Settings › Sounds & Haptics › Keyboard Feedback and the silent switch, and iOS may keep it silent without Full Access.
+- The extension has a tight memory limit (about 50–70 MB).
 
 ## Built-in typing features
 
@@ -72,6 +74,7 @@ If you ever add features that need Full Access (haptics, sync, cloud themes), tr
 - Hold the space bar to use it as a trackpad: slide left/right to move the cursor
 - Your Text Replacement shortcuts (Settings › General › Keyboard › Text Replacement) work, e.g. "omw" → "On my way!"
 - Light and dark mode, VoiceOver labels
+- Key clicks and haptics (haptics need the optional Full Access)
 
 ## Possible next features
 

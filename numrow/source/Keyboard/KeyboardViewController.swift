@@ -3,8 +3,10 @@ import UIKit
 /// Entry point of the keyboard extension.
 ///
 /// Privacy and security design:
-/// - Runs WITHOUT Full Access (`RequestsOpenAccess = NO` in Info.plist). iOS therefore blocks
-///   this extension from the network, from shared containers with the app, and from the clipboard.
+/// - Works fully WITHOUT Full Access. Full Access is optional (`RequestsOpenAccess = YES` only
+///   so users can choose it) and is used for exactly one thing: key-press haptics, which iOS
+///   doesn't allow otherwise. See `KeyFeedback`.
+/// - Contains no networking code at all, so nothing can be sent even with Full Access on.
 /// - Never stores, logs or sends keystrokes. No `print`, no files, no UserDefaults, no analytics,
 ///   no third-party code.
 /// - The only text it reads is the context around the cursor, kept in memory for a moment, for
@@ -30,6 +32,7 @@ final class KeyboardViewController: UIInputViewController {
     private var textReplacements: [String: String] = [:]
 
     private let autocorrector = Autocorrector()
+    private let feedback = KeyFeedback()
     /// The correction space will apply, and the exact word it applies to.
     private var pendingCorrection: (word: String, replacement: String)?
 
@@ -38,6 +41,11 @@ final class KeyboardViewController: UIInputViewController {
     }
 
     // MARK: Lifecycle
+
+    override func loadView() {
+        // A root view that adopts UIInputViewAudioFeedback, so key clicks can play.
+        view = KeyboardInputView(frame: .zero, inputViewStyle: .keyboard)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -375,6 +383,10 @@ extension KeyboardViewController: KeyboardViewDelegate {
         stopDeleteRepeat()
     }
 
+    func keyboardViewDidPressKey(_ keyboardView: KeyboardView) {
+        feedback.keyPressed(hasFullAccess: hasFullAccess)
+    }
+
     func keyboardView(_ keyboardView: KeyboardView, moveCursorBy offset: Int) {
         lastSpaceTap = nil
         textDocumentProxy.adjustTextPosition(byCharacterOffset: offset)
@@ -384,6 +396,7 @@ extension KeyboardViewController: KeyboardViewDelegate {
 
 extension KeyboardViewController: SuggestionBarDelegate {
     func suggestionBar(_ bar: SuggestionBar, didSelect suggestion: Suggestion) {
+        feedback.keyPressed(hasFullAccess: hasFullAccess)
         let word = currentWord()
         if suggestion.kind == .verbatim {
             // "Keep what I typed": don't correct this word again while the keyboard is open.
