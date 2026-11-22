@@ -58,7 +58,7 @@ If you ever add features that need Full Access (haptics, sync, cloud themes), tr
 ## Known iOS limits (apply to every third-party keyboard)
 
 - Password, secure and phone-pad fields always use Apple's keyboard.
-- Some apps (banking, enterprise) block custom keyboards entirely.
+- Many banking, e-wallet and enterprise apps allow only Apple's keyboard. iOS switches over automatically; this is the app's security choice and applies to every third-party keyboard.
 - No dictation microphone, no key-press haptics without Full Access, and the extension has a tight memory limit (about 50–70 MB).
 
 ## Built-in typing features

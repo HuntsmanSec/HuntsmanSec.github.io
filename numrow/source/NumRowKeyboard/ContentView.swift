@@ -32,7 +32,7 @@ struct ContentView: View {
                 } header: {
                     Text("Try it")
                 } footer: {
-                    Text("Password fields always use Apple's keyboard. That's an iOS security rule that protects you.")
+                    Text("Password fields, and many banking and e-wallet apps, always use Apple's keyboard. iOS switches over automatically to protect you.")
                 }
 
                 Section("Your privacy") {
