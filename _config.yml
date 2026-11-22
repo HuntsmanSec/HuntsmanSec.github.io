@@ -37,6 +37,7 @@ exclude:
   - node_modules
   - .env.example
   - _to_delete
+  - numrow/source
 
 # Collections. `nav_label` and `section_url` are used by the navigation,
 # the terminal and the "Back" links, so a new section only needs an entry here.

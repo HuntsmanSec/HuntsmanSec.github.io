@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NumRow Keyboard · Free for every iPhone</title>
+  <meta name="description" content="NumRow is a free iPhone keyboard: the English keyboard you know, plus a number row that's always there. No ads, no tracking, nothing leaves your iPhone.">
+  <meta property="og:title" content="NumRow Keyboard · Free for every iPhone">
+  <meta property="og:description" content="The English keyboard you know, plus a number row that's always there. Free, private, open source.">
+  <meta property="og:url" content="https://huntsmansec.github.io/numrow/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#05070b">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-2: #08111f;
+      --panel: #0b1220;
+      --panel-2: #101a2d;
+      --text: #ecfdf5;
+      --muted: #9fb0c3;
+      --line: rgba(124, 252, 169, 0.18);
+      --green: #7cffa9;
+      --green-2: #23d18b;
+      --cyan: #67e8f9;
+      --amber: #f6d365;
+      --key: #e9edf2;
+      --key-text: #0b1220;
+      --key-special: #aab3be;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(103, 232, 249, 0.14), transparent 26rem),
+        radial-gradient(circle at 85% 10%, rgba(124, 255, 169, 0.1), transparent 28rem),
+        linear-gradient(150deg, var(--bg), var(--bg-2) 60%, #06080d);
+      min-height: 100vh;
+    }
+    a { color: var(--cyan); }
+    .page { max-width: 880px; margin: 0 auto; padding: 40px 16px 56px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+    /* Hero */
+    .eyebrow { color: var(--green); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 12px; }
+    h1 { font-size: clamp(34px, 7vw, 56px); line-height: 1.05; margin: 0 0 14px; letter-spacing: -0.02em; }
+    h1 span { color: var(--green); }
+    .lede { font-size: clamp(17px, 2.6vw, 20px); color: var(--muted); margin: 0 0 26px; max-width: 34em; }
+    .free {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 18px;
+      border: 1px solid var(--green); border-radius: 18px;
+      background: linear-gradient(120deg, rgba(124, 255, 169, 0.16), rgba(103, 232, 249, 0.06));
+      padding: 18px 22px; margin-bottom: 40px;
+    }
+    .free-price { font-size: clamp(40px, 9vw, 64px); font-weight: 800; color: var(--green); line-height: 1; letter-spacing: -0.03em; }
+    .free-text strong { display: block; font-size: 19px; }
+    .free-text span { color: var(--muted); font-size: 15px; }
+
+    /* Keyboard illustration */
+    .kb-wrap { position: relative; margin: 0 auto 44px; max-width: 520px; }
+    .kb {
+      background: #cfd4db; border-radius: 22px; padding: 10px 6px 14px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+    .bar { display: flex; justify-content: space-around; color: #3b4452; font-size: 14px; padding: 4px 0 8px; }
+    .bar b { background: var(--key); border-radius: 6px; padding: 2px 14px; color: var(--key-text); }
+    .row { display: flex; gap: 5px; justify-content: center; margin-bottom: 7px; }
+    .row:last-child { margin-bottom: 0; }
+    .k {
+      flex: 1 1 0; max-width: 46px; height: 40px; border-radius: 6px;
+      background: var(--key); color: var(--key-text);
+      display: grid; place-items: center; font-size: 17px;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    }
+    .k.s { background: var(--key-special); max-width: 64px; font-size: 13px; }
+    .k.space { max-width: 220px; flex-grow: 5; font-size: 13px; }
+    .k.ret { max-width: 96px; flex-grow: 2; }
+    .num-row {
+      position: relative; border-radius: 10px; padding: 5px 4px; margin: 0 -2px 7px;
+      background: rgba(35, 209, 139, 0.28); outline: 2px solid var(--green-2);
+    }
+    .num-row .row { margin: 0; }
+    .num-row .k { height: 30px; font-size: 15px; }
+    .kb-wrap { padding-top: 22px; }
+    .callout {
+      position: absolute; right: 12px; top: 0; z-index: 1;
+      background: var(--green); color: #04130b; font-weight: 700; font-size: 13px;
+      padding: 5px 12px; border-radius: 999px; white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(124, 255, 169, 0.35);
+    }
+
+    /* Sections */
+    h2 { font-size: 22px; margin: 0 0 6px; }
+    .sub { color: var(--muted); margin: 0 0 18px; }
+    section { margin-bottom: 40px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .item {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px;
+    }
+    .check {
+      flex: none; width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(124, 255, 169, 0.16); color: var(--green);
+      display: grid; place-items: center; font-weight: 800; font-size: 14px;
+    }
+    .item strong { display: block; font-size: 15.5px; }
+    .item span { color: var(--muted); font-size: 14px; }
+    .note { color: var(--muted); font-size: 13px; margin: 12px 2px 0; }
+
+    .uses { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+    .use {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+    }
+    .use { display: flex; flex-direction: column; }
+    .use code { margin-top: auto; }
+    .use-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .use-icon { font-size: 22px; line-height: 1; }
+    .use strong { font-size: 15.5px; }
+    .use code {
+      display: block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13.5px; color: var(--green); background: rgba(124, 255, 169, 0.07);
+      border-radius: 8px; padding: 6px 10px; overflow-wrap: anywhere;
+    }
+
+    .devices {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px;
+    }
+    .stat {
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: 14px; padding: 16px; text-align: center;
+    }
+    .stat b { display: block; font-size: 24px; color: var(--cyan); line-height: 1.2; }
+    .stat span { color: var(--muted); font-size: 14px; }
+
+    .privacy { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill {
+      border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px;
+      background: var(--panel); font-size: 14.5px;
+    }
+    .pill::before { content: "🔒 "; }
+
+    footer {
+      border-top: 1px solid var(--line); padding-top: 22px; color: var(--muted); font-size: 14.5px;
+      display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between;
+    }
+    footer nav { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+
+    @media (max-width: 480px) {
+      .k { height: 34px; font-size: 14px; }
+      .num-row .k { height: 26px; font-size: 13px; }
+      .row { gap: 4px; }
+      .callout { right: 8px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="eyebrow mono">iPhone keyboard · by HuntsmanSec</p>
+    <h1>The keyboard you know.<br><span>Plus a number row.</span></h1>
+    <p class="lede">NumRow is the English iPhone keyboard you already type on, with one change: the numbers 1–0 are always on top. No more switching to <span class="mono">123</span>.</p>
+
+    <div class="free">
+      <div class="free-price">FREE</div>
+      <div class="free-text">
+        <strong>Free for everyone, for good.</strong>
+        <span>No ads · no subscriptions · no in-app purchases · open source</span>
+      </div>
+    </div>
+
+    <div class="kb-wrap" role="img" aria-label="NumRow keyboard: a standard English iPhone keyboard with a number row added on top, highlighted as the only addition.">
+      <div class="callout">The only thing we added</div>
+      <div class="kb" aria-hidden="true">
+        <div class="bar"><span>“Teh”</span><b>The</b><span>Ten</span></div>
+        <div class="num-row">
+          <div class="row"><div class="k">1</div><div class="k">2</div><div class="k">3</div><div class="k">4</div><div class="k">5</div><div class="k">6</div><div class="k">7</div><div class="k">8</div><div class="k">9</div><div class="k">0</div></div>
+        </div>
+        <div class="row"><div class="k">q</div><div class="k">w</div><div class="k">e</div><div class="k">r</div><div class="k">t</div><div class="k">y</div><div class="k">u</div><div class="k">i</div><div class="k">o</div><div class="k">p</div></div>
+        <div class="row"><div class="k">a</div><div class="k">s</div><div class="k">d</div><div class="k">f</div><div class="k">g</div><div class="k">h</div><div class="k">j</div><div class="k">k</div><div class="k">l</div></div>
+        <div class="row"><div class="k s">⇧</div><div class="k">z</div><div class="k">x</div><div class="k">c</div><div class="k">v</div><div class="k">b</div><div class="k">n</div><div class="k">m</div><div class="k s">⌫</div></div>
+        <div class="row"><div class="k s">123</div><div class="k space">space</div><div class="k s ret">return</div></div>
+      </div>
+    </div>
+
+    <section aria-labelledby="uses">
+      <h2 id="uses">Best for typing words and numbers together</h2>
+      <p class="sub">If you keep tapping <span class="mono">123</span> and back, NumRow saves you the trip.</p>
+      <div class="uses">
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">💬</span><strong>Chats &amp; plans</strong></div><code>See you at 7:30, table for 4</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📍</span><strong>Addresses &amp; deliveries</strong></div><code>Unit 12B, 2468 Rizal Ave</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📅</span><strong>Dates, times &amp; schedules</strong></div><code>Due 11/28, call at 3pm</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">🛒</span><strong>Shopping lists &amp; budgets</strong></div><code>2 kg rice, 12 eggs, ₱450</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📚</span><strong>School &amp; work notes</strong></div><code>Q3 sales up 18% vs 2025</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">💻</span><strong>Tech &amp; IT notes</strong></div><code>Port 443 open on 10.0.0.25</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">📦</span><strong>Order &amp; tracking numbers</strong></div><code>Order #A1093-5521 shipped</code></div>
+        <div class="use"><div class="use-head"><span class="use-icon" aria-hidden="true">🎮</span><strong>Usernames &amp; game chat</strong></div><code>gg! final score 21-19</code></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="features">
+      <h2 id="features">Everything you already use still works</h2>
+      <p class="sub">All the everyday features of Apple's English keyboard, built in.</p>
+      <div class="grid">
+        <div class="item"><div class="check">✓</div><div><strong>Autocorrect &amp; suggestions</strong><span>Fixes typos as you type, with a tap-to-pick bar</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>Accents on long-press</strong><span>Hold a letter for é, ñ, ü and more</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>Space-bar trackpad</strong><span>Hold space and slide to move the cursor</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>Double-space period</strong><span>Tap space twice to end a sentence</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>Your Text Replacements</strong><span>"omw" still becomes "On my way!"</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>Auto-capitals &amp; caps lock</strong><span>Double-tap shift for ALL CAPS</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>Light &amp; dark mode</strong><span>Follows your iPhone's setting</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>VoiceOver ready</strong><span>Every key is labelled for screen readers</span></div></div>
+        <div class="item"><div class="check">✓</div><div><strong>Haptics &amp; key clicks</strong><span>Feel every tap (optional, see below)</span></div></div>
+      </div>
+      <p class="note">Not included yet: swipe typing and next-word prediction. Switch to Apple's keyboard any time with the 🌐 key.</p>
+    </section>
+
+    <section aria-labelledby="devices">
+      <h2 id="devices">Fits every iPhone</h2>
+      <p class="sub">The layout scales to your screen, so keys are never too wide or too cramped.</p>
+      <div class="devices">
+        <div class="stat"><b>SE → Pro Max</b><span>Every screen size</span></div>
+        <div class="stat"><b>iOS 16+</b><span>Any iPhone that runs it</span></div>
+        <div class="stat"><b>↕ ↔</b><span>Portrait &amp; landscape</span></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="privacy">
+      <h2 id="privacy">Private by design</h2>
+      <p class="sub">NumRow works fully without "Full Access". Turn it on only if you want haptics; that's the one thing it's used for.</p>
+      <div class="privacy">
+        <div class="pill">Nothing you type is stored or sent</div>
+        <div class="pill">No internet code, even with Full Access</div>
+        <div class="pill">No tracking or analytics</div>
+        <div class="pill">No accounts</div>
+        <div class="pill">Open source, so anyone can check</div>
+      </div>
+      <p class="note"><strong>Banking &amp; e-wallet apps:</strong> many banking and payment apps only allow Apple's keyboard, and password, PIN and phone-number fields always use it. iOS switches over automatically for your security. This applies to every third-party keyboard, not just NumRow.</p>
+    </section>
+
+    <footer>
+      <span>Coming free to the App Store.</span>
+      <nav aria-label="NumRow links">
+        <a href="https://github.com/HuntsmanSec/HuntsmanSec.github.io/tree/main/numrow/source">Source code</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="/">HuntsmanSec</a>
+      </nav>
+    </footer>
+  </main>
+</body>
+</html>
